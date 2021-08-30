@@ -1,0 +1,31 @@
+.salesrep{
+    flex:4;
+    display: block;
+}
+.rephead{
+    margin-left: 150px;
+    margin-top: 20px;
+    display:inline-flex;
+    align-items: center;
+}
+.ii{
+    padding-top: 10px;
+    padding-right: 15px;
+}
+
+.srpbody{
+    display: flex;
+    margin-left: 20px;
+    flex-direction: column;
+}
+
+.top{
+    margin-top: 30px;
+    font-size: 20px;
+    color: gray;
+}
+
+.repitem{
+    margin-top: 25px;
+    font-size: 13px;
+}

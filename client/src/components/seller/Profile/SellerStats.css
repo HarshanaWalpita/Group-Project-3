@@ -1,0 +1,48 @@
+.seller-stats-background{
+    padding: 4rem;
+    background: url('../../buyer/home/images/background1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.seller-stat-card-row{
+    width: 80vw;
+    margin: 20px auto 20px;
+}
+.seller-stat-card-row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.seller-stat-card-column{
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+.seller-stat-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background-color: #f1f1f1;
+    margin-bottom: 20px;
+    height: 200px;
+}
+
+.seller-stat-card-header{
+    background-color: darkcyan;
+    color: #fff;
+    padding: 10px 20px;
+}
+.seller-stat-card{
+    align-items: center;
+}
+.seller-stat-card-detail p{
+    font-size: 64px;
+}
+
+@media (max-width: 600px){
+    .seller-stat-card-column{
+        width: 100%;
+        display: block;
+    }
+}

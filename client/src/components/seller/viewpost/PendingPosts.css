@@ -1,0 +1,88 @@
+
+.seller-post-list-background{
+    padding: 4rem;
+    background: url('../../buyer/home/images/background1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.seller-post-list{
+    width: 80vw;
+    margin: auto;
+    box-sizing: border-box;
+}
+.seller-post-card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: left;
+    background-color: #f1f1f1;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.seller-post-card-item-row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.seller-post-card-item{
+    display:inline-block;
+    
+    width: 30%;
+    padding: 0 10px;
+    border: 1px solid;
+    box-shadow: 5px 5px 8px #888888;
+    margin-left: 10px;
+}
+
+.seller-post-card-itm-header{
+    display: inline-block;
+}
+.item-edit-button,
+.item-remove-button,
+.item-edit-all-button,
+.item-remove-all-button{
+    padding: 5px 15px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 3px;
+    margin: 10px;
+    text-decoration: none;
+
+}
+.item-edit-button,
+.item-remove-button{
+    float: right;
+}
+.item-edit-all-button,
+.item-remove-all-button{
+    float: left;
+}
+.item-edit-button, .item-edit-all-button{
+    background-color: blue;
+}
+.item-remove-button, .item-remove-all-button{
+    background-color: red;
+}
+
+.item-edit-button:hover, .item-remove-button:hover{
+    background-color: darkred;
+
+}
+
+.seller-post-card-item-details img{
+    max-width: 250px;
+    height: auto;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .seller-post-card-item {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+}

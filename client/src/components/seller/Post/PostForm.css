@@ -1,0 +1,115 @@
+
+.seller-add-post-background{
+    padding: 4rem;
+    background: url('../../buyer/home/images/background1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.seller-add-post-header{
+    background-color: darkcyan;
+    padding: 25px;
+}
+
+.seller-add-post-item-header{
+    background-color: darkcyan;
+    padding: 20px;
+}
+.seller-add-post-header h2{
+    color: #fff;
+}
+.seller-add-post-item-header h3{
+    color: #fff;
+}
+
+.seller-add-waste-item-btn, 
+.seller-waste-item-delete-btn{
+    margin-bottom: 10px;
+    padding: 5px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+}
+.seller-add-waste-item-btn{
+    background-color:blue;
+    margin-left: 10px;
+}
+.seller-waste-item-delete-btn{
+    float: right;
+    background-color: red;
+}
+.seller-add-waste-item-btn:hover,
+.seller-waste-item-delete-btn:hover{
+    background-color: darkred;
+}
+.seller-post-submit-btn{
+    padding: 10px 35px;
+    float: right;
+    border: none;
+    border-radius: 5px;
+    background-color:green;
+    color: #fff;
+    font-size: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.seller-post-item{
+    margin-bottom: 40px;
+    margin-left: 40px;
+}
+.seller-add-post{
+    width: 80vw;
+    margin:50px auto 50px;
+    background-color: #fff;
+}
+.seller-add-post-row{
+    margin: 10px 20px;
+}
+.seller-add-post-select{
+    width: 30vw;
+    margin: 10px 10px;
+    padding: 15px 20px;
+}
+
+input#input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  .seller-add-post-label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  .item-preview-picture{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+  }
+  .seller-add-post-row img{
+      max-width: 250px;
+      height: auto;
+  }
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .seller-add-post-select{
+        width: 200px;
+    }
+    .seller-add-post{
+        width: 100vw;
+        margin: auto;
+    }
+    .seller-add-post-background{
+        padding: 0;
+    }
+   
+  }

@@ -1,0 +1,29 @@
+.location-b .location__container-b h1{
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding: 0 20px 20px;
+    color: #164A41;
+}
+.location-b {
+    padding: 4rem;
+    background: url('../home/images/background1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.location__container-b {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.location-box-b{
+    width: 100%;
+    border-color: #164A41;
+    border-width: 5px;
+}

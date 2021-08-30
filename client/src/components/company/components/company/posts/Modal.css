@@ -1,0 +1,92 @@
+body.active-modal-c {
+    overflow-y: hidden;
+}
+
+.btn-modal-c {   
+    border: none;
+    font-size: 18px;
+    background-color: transparent;
+    color: royalblue;
+}
+
+.modal-c, .overlay-c {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay-c {
+    background: rgba(49,49,49,0.8);
+}
+
+.modal-content-c {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #fff;
+    padding: 14px 28px;
+    border-radius: 3px;
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 600px;
+    min-width: 300px;
+    height: fit-content;
+}
+
+.profileimage-c {
+    height: 120px;
+    width: 120px;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.contact-c {
+    width: 50%;
+    margin: 0px;
+    float: left;
+    height: 100%;   
+    box-shadow: 5px 5px #000;
+    text-align: center;
+}
+
+.contact-c h2 {
+    font-size: 15px;
+}
+
+.contact-c h1 {
+    font-size: 25px;
+}
+
+.detail-c {
+    width: 50%;
+    float: right;
+    padding-left: 20px;
+}
+
+.detail-c h2 {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.detail-c p {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+label {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.close-modal-c {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 7px;
+}

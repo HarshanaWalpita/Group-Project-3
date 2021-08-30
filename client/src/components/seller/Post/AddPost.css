@@ -1,0 +1,17 @@
+.send-direct-post{
+   
+    padding: 20px;
+    width: 80vw;
+    margin: auto;
+
+}
+
+.send-direct-post button {
+   
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: black;
+}

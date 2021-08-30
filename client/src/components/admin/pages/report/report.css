@@ -1,0 +1,67 @@
+.newuser{
+    flex: 4;
+    
+} 
+.newform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.fitems{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 20px;
+    padding-bottom: 20px;
+}
+
+.fitems>label{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: gray;
+}
+.fitems>label.slabel{
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: gray;
+}
+.reportTitle{
+    text-align: left;
+}
+.selectList{
+     height: 40px;
+     padding: 10px;
+     border: 1px solid gray;
+     border-radius: 5px;
+     font-size: 14px;
+     font-weight: 600;
+     color: gray;
+}
+.fitems>input{
+     height: 40px;
+     padding: 10px;
+     border: 1px solid gray;
+     border-radius: 5px;
+}
+.fitems>label.slabel{
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: gray;
+}
+.nbutton{
+    width: 200px;
+    border: none;
+    background-color:#2E8B57;
+    color: white;
+    padding: 7px 10px;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+
+}

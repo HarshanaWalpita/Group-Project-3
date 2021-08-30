@@ -1,0 +1,13 @@
+
+.services{
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 100px;
+}
+

@@ -1,0 +1,439 @@
+.posts-b {
+    padding: 4rem;
+    background: url('../home/images/background1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.posts__container-b {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    max-width: 1120px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.grid-b{
+    margin: 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 75px;
+    align-items: center;
+}
+
+.grid-b > article{
+    background: #eee5e9;
+    border: none;
+    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    text-align: center;
+    width: 250px;
+    transition: transform .3s;
+}
+
+.grid-b > article img{
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 250px;
+}
+
+.grid-b > article img:hover{
+    transform: scale(1.1);
+    transition: transform .3s;
+}
+
+.text-b{
+    padding: 0 20px 20px;
+}
+
+.text-b h3{
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.text-b .buyerlink-b{
+    background: #ef6f6c;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.text-b .buyerlink-b:hover{
+    opacity: 0.8;
+    transition: .3s;
+}
+
+.search-bar-b{
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    align-items: center;
+}
+.box-b{
+    position: relative;
+}
+.box-b h3{
+    padding-bottom: 10px;
+}
+.box-b select{
+    background: #0563af;
+    color: #fff;
+    padding: 10px;
+    width: 250px;
+    height: 50px;
+    border: none;
+    font-size: 18px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    -webkit-appearance: button;
+    outline: none;
+}
+.box-b:before{
+    content: '\f358';
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    top: 44px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 18px;
+    background: #007ce0;
+    pointer-events: none;
+}
+.box-b:hover:before{
+    background: #0472ca;
+}
+
+.search-bar-box-b{
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    align-items: center;
+}
+
+.post-search-box-b{
+    width: 975px;
+    position: relative;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.post-search-box-b input[type="text"]{
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    background: #0472ca;
+    border: none;
+    font-size: 18px;
+    color: #fff;
+    outline: none;
+}
+
+.fa-search{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 25px;
+    color: #fff;
+    font-size: 25px;
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #fff;
+}
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #fff;
+}
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #fff;
+}
+
+.search-button-b input{
+    height: 52px;
+    width: 100px;
+    outline: none;
+    font-size: 18px;
+    margin-bottom: 20px;
+    margin-left: -15px;
+    color: #ffffff;
+    background: #0472ca;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    position: relative;
+}
+
+.search-button-b input:hover{
+    background-color: #1a83ff;
+}
+
+.posts-b .posts__container-b h1{
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding: 0 20px 20px;
+    color: #164A41;
+}
+
+.seller-location-b{
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.search-box-shadow-b{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    margin-left: 20px;
+}
+
+ol {
+    line-height: 2;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #164A41;
+}
+
+ol li {
+    list-style-type: none;
+    counter-increment: item;
+}
+
+ol li:before {
+    content: counter(item);
+    display: inline-block;
+    width: 12px;
+    height: 20px;
+    font-family: "Indie Flower", cursive;
+    margin-right: 5px;
+    background-color: #f9dd94;
+    color: #7eb4e2;
+    font-weight: bold;
+    font-size: 140%;
+    padding: 0 8px 8px;
+    border-radius: 3px;
+    line-height: 1.3;
+}
+
+.seller-container-b{
+    width: 500px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.all-items-button-b{
+    padding-bottom: 50px;
+}
+
+.all-items-button-b p{
+    color: #164A41;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.all-items-button-b .link-button-b{
+    background: #ef6f6c;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.all-items-button-b .link-button-b:hover{
+    opacity: 0.8;
+    transition: .3s;
+}
+
+.search_box-b{
+    width: 25%;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search_box-b input[type="text"]{
+    width: 100%;
+    padding: 15px;
+    padding-right: 60px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.3);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #fff;
+    outline: none;
+}
+
+.fa-search{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 25px;
+    color: #fff;
+    font-size: 25px;
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #fff;
+}
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #fff;
+}
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #fff;
+}
+
+.delete-button-b button{
+    background-color: #f44336;
+    font-size: 16px;
+}
+.delete-button-b button:hover{
+    opacity: 0.8;
+}
+
+.text-b button{
+    background: #ef6f6c;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.text-b button:hover{
+    opacity: 0.8;
+    transition: .3s;
+}
+
+.buyer-view-post-b{
+    margin-left: 450px;
+}
+
+
+
+@media (max-width: 768px){
+    .grid-b{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .search-bar-b{
+        grid-template-columns: repeat(2, 1fr);
+        text-after-overflow: center;
+    }
+    .text-b .buyerlink-b{
+        display: flex;
+    }
+    .fa-angle-double-right{
+        padding-top: 3px;
+        padding-left: 5px;
+    }
+    .fa-search-location{
+        padding-top: 3px;
+        padding-left: 5px;
+    }
+    .fa-edit{
+        padding-top: 3px;
+        padding-left: 5px;
+    }
+    .fa-trash-alt{
+        padding-top: 3px;
+        padding-left: 5px;
+    }
+    .post-search-box-b{
+        width: 95%;
+    }
+    .post-search-box-b .fa-search{
+        display: none;
+    }
+    .seller-container-b{
+        width: 400px;
+    }
+    .search_box-b{
+        width: 95%;
+    }
+    .text-b button{
+        display: flex;
+    }
+    .buyer-view-post-b{
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 500px){
+    .grid-b{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .search-bar-b{
+        grid-template-columns: repeat(1, 1fr);
+        margin-right: 100px;
+    }
+
+    .grid-b > article{
+        text-align: center;
+    }
+    .text-b .buyerlink-b{
+        display: flex;
+    }
+    .fa-angle-double-right{
+        padding-top: 3px;
+        padding-left: 5px;
+    }
+    .fa-edit{
+        padding-top: 3px;
+        padding-left: 5px;
+    }
+    .fa-trash-alt{
+        padding-top: 3px;
+        padding-left: 5px;
+    }
+
+    .fa-search-location{
+        padding-top: 3px;
+        padding-left: 5px;
+    }
+
+    .post-search-box-b{
+        width: 95%;
+        margin-right: 150px;
+    }
+    .post-search-box-b .fa-search{
+        display: none;
+    }
+    .seller-container-b{
+        width: 400px;
+    }
+    .all-items-button-b .link-button-b{
+        display: flex;
+    }
+    .search_box-b{
+        width: 95%;
+    }
+    .text-b button{
+        display: flex;
+    }
+    .buyer-view-post-b{
+        margin-left: 0px;
+    }
+}

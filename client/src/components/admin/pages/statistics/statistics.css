@@ -1,0 +1,85 @@
+.featured{
+    height: 200px;
+}
+.cc{
+    flex:4;
+}
+.bb{
+    margin: 20px;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75); 
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75);
+    justify-content: center;
+}
+.frow{
+    width: 100%;
+    display: flex;
+}
+.fe_info{
+    margin-top: 20px;
+    display: flex;
+    height: 200px;
+}
+.infoItem{
+    margin: 0px 20px;
+    padding: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 150px;
+    width: 350px;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75); 
+box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75);
+}
+.featuredItem{
+    margin: 0px 20px;
+    padding: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 200px;
+    width: 250px;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75); 
+box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75);
+}
+
+.piechart{
+    background-color: blue;
+    display: flex;
+    justify-content: flex-start;
+
+}
+.featuredTitle{
+    font-size: 20px;
+}
+.featuredMoneyContainer{
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+}
+.featuredMoney{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.featuredMoneyrate{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+.featuredIcon{
+    font-size: 14px;
+    margin-left: 5px;
+    color: green;
+}
+.featuredIcon.negative{
+    color: red;
+}
+.featuredSub{
+    font-size: 15px;
+    color: gray;
+}
+.pie{
+    display: flex;
+    margin: 20px;
+}

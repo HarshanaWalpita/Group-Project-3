@@ -1,0 +1,72 @@
+.seller-offer-list-background{
+    padding: 4rem;
+    background: url('../../buyer/home/images/background1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.seller-offer-list{
+    width: 80vw;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.seller-offer-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .seller-offer-table td, .seller-offer-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .seller-offer-table tr{background-color: #f2f2f2;}
+  
+  .seller-offer-table tr:hover {background-color: #ddd;}
+  
+  .seller-offer-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .offer-list-view-post,
+  .offer-list-view-buyer,
+  .offer-list-accept,
+  .offer-list-decline{
+      padding: 5px 15px;
+      margin-left: 10px;
+      border-radius: 5px;
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  .offer-list-view-post:hover,
+  .offer-list-view-buyer:hover,
+  .offer-list-accept:hover,
+  .offer-list-decline:hover{
+      background-color: darkred;
+  }
+
+  .offer-list-accept{
+      background-color: blue;
+  }
+  .offer-list-decline{
+      background-color: red;
+  }
+  .offer-list-view-buyer,
+  .offer-list-view-post{
+      background-color: green;
+  }
+  
+  .seller-post-offer-details{
+      
+      display: inline-table;
+
+  }

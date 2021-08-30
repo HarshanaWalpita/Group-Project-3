@@ -1,0 +1,94 @@
+
+
+.seller-col-25 {
+  float: left;
+  width: 35%;
+  margin-top: 6px;
+ padding: 20px;
+}
+
+.seller-col-75 {
+  float: left;
+  width: 65%;
+  margin-top: 6px;
+  padding: 10px;
+  padding-left: 10vw;
+  
+}
+.seller-buyer-details{
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+/* Clear floats after the columns */
+.seller-buyer-details:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.seller-buyer-details-card{
+  width: 75vw;
+  margin: auto;
+  padding: 25px;
+}
+.seller-col-25 h1{
+    color: brown;
+    
+}
+.seller-col-25 img{
+    width: 100%;
+    margin: auto;
+   max-width: 250px;
+   max-height: 250px;
+}
+.ratings-star{
+  color: darkgoldenrod;
+  padding: 5px;
+}
+
+.seller-buyer-area-list ul{
+list-style-image: url('./BuyerImages/map32.png');
+}
+
+.seller-buyer-type-list ul {
+list-style-image: url('./BuyerImages/bin.png');
+
+}
+.seller-buyer-type-lis ul, .seller-buyer-area-list ul {
+display: grid;
+grid: auto auto auto / auto auto auto;
+grid-gap: 10px;
+
+}
+.seller-buyer-area-list ul li, .seller-buyer-type-lis ul li {
+padding: 5px;
+}
+.s-b-detail{
+padding-bottom: 10px;
+}
+.seller-sell-now button{
+width: 150px;
+height: 50px;
+background-color: red;
+border-radius: 5px;
+border: none;
+color: white;
+font-size: medium;
+cursor: pointer;
+float: right;
+}
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .seller-col-25, .seller-col-75 {
+    width: 100%;
+    margin-top: 0;
+  }
+  .seller-buyer-details-card{
+    width: 100%;
+    padding: 10px;
+  }
+  ul{
+    grid: auto auto/ auto auto;
+  }
+}

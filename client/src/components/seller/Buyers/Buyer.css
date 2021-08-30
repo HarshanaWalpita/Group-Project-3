@@ -1,0 +1,147 @@
+
+
+.buyer-list-background{
+  padding: 4rem;
+    background: url('../../buyer/home/images/background1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.buyer-list{
+    max-width: 80vw;
+    margin: auto;
+    padding: 25px;
+    box-sizing: border-box;
+}
+.buyer-column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.buyer-row {
+    margin: 0 -5px;
+    padding-bottom: 10px;
+  }
+
+/* Clear floats after the columns */
+.buyer-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/* Style the counter cards */
+.buyer-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  padding-bottom: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.buyer-card img{
+  width: 100%;
+  
+}
+
+.ratings-star{
+  color: darkgoldenrod;
+}
+.sell-now-btn, .view-more-btn {
+  padding: 5px 10px;
+  margin: auto;
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: transparent;
+  font-weight: bold;
+}
+
+.sell-now-btn{
+  background-color: crimson;
+}
+
+.view-more-btn{
+  background-color: chocolate;
+}
+.btn{
+  margin: auto;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .buyer-column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .btn{
+    margin: auto;
+    z-index: 99999;
+    width: 100px;
+    height: 100px;
+  }
+  .btn button{
+    width: 50px;
+  height: 50px;
+  padding: 0px;
+  border: black;
+  }
+
+}
+
+.seller-buyer-search-container{
+  overflow: hidden;
+  background-color: #e9e9e9;
+  padding: 20px;
+}
+
+input#serchinput {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  margin: 10px;
+}
+.seller-search-buyer-btn {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background-color:rgb(61, 167, 142);
+  color: #fff;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.seller-search-buyer-btn:hover{
+  background-color: darkred;
+}
+.seller-search-buyer select{
+    width: 200px;
+    padding: 6px;
+    margin: 10px;
+    border: none;
+    font-size: 17px;
+}
+.buyer-list-header {
+  padding: 15px 25px;
+  background-color: darkcyan;
+margin-bottom: 10px;
+}
+.buyer-list-header h2{
+  font-size: 32px;
+  color: #fff;
+}
+.search-buyer-label{
+  font-size: 17px;
+  cursor: none;
+}

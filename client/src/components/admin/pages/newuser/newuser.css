@@ -1,0 +1,56 @@
+.an_newuser{
+    flex: 4;
+} 
+.an_newform{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.an_newuserTitle{
+    text-align: left;
+}
+.an_fitems{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.an_fitems>label{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: gray;
+}
+.an_fitems>input{
+     height: 35px;
+     padding: 10px;
+     border: 1px solid gray;
+     border-radius: 5px;
+}
+
+.an_role>select{
+    margin: 7px;
+    font-size: 18px;
+    height: 40px;
+    font-size: 16px;
+    width: 300px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    color: #555;
+
+}
+
+.an_nbutton{
+    width: 200px;
+    border: none;
+    background-color: #2E8B57;
+    color: white;
+    padding: 7px 10px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+
+}

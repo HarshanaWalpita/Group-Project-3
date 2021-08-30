@@ -1,0 +1,83 @@
+.Buyer-details-background{
+  padding: 4rem;
+    background: url('../../buyer/home/images/background1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+.seller-add-comment{
+    width: 75vw;
+    margin: auto;
+}
+
+
+.seller-add-comment-form {  
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  
+  
+  .seller-add-comment-form input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 70vw;
+  }
+  
+  .seller-add-comment-form button {
+    padding: 10px 20px;
+    background-color: forestgreen;
+    border: 1px solid #ddd;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .seller-add-comment-form button:hover {
+    background-color: darkgreen;
+  }
+  .seller-user-reply{
+      margin-left: 100px;
+      font-size: 12px;
+      padding: 5px;
+  }
+  
+  @media (max-width: 800px) {
+    .seller-add-comment-form input {
+      margin: 10px 0;
+      width: 50vw;
+    }
+  }
+
+
+
+@media (max-width: 1600px) {
+  .seller-card-container {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 600px){
+    .seller-add-comment{
+        width: 80vw;
+    }
+}
+
+.buyer-comments-area{
+  width: 80vw;
+  margin: auto;
+}
+
+.seller-comment-card{
+  background-color: aquamarine;
+  padding: 15px 25px;
+}
+.seller-reply-card{
+  background-color: antiquewhite;
+  padding: 15px 25px;
+  margin-left: 50px;
+}

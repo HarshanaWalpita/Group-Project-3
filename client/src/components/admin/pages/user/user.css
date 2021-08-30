@@ -1,0 +1,138 @@
+.user{
+    flex: 4;
+    padding: 20px;
+}
+
+.userTitleContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.editbutton{
+    width: 80px;
+    border: none;
+    padding: 5px;
+    background-color: teal;
+    background-repeat: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.userContainer{
+    display: flex;
+    margin-top: 20px;
+    height: 280px;
+  
+}
+.userShow{
+    width: 400px;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75); 
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75);
+    padding: 20px;
+}
+
+.userUpdate{
+    width: 400px;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75); 
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75);
+    padding: 20px;
+    margin-left: 20px;
+}
+.userShowTop{
+    display: flex;
+    align-items: center;
+}
+.userimg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+.name{
+    font-weight: 600;
+}
+.role{
+    font-weight: 300;
+}
+.showTitle{
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(175, 170, 170);
+}
+.userShowBottom{
+    margin-top: 20px;
+}
+.userinfo{
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    color: #444;
+}
+.icon{
+    font-size: 16px !important;
+}
+.use{
+    margin-left: 10px;
+}
+.uimg{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+.userform{
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+}
+.uTitle{
+    font-size: 24px;
+    font-weight: 600;
+}
+.uitem{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.uitem>label{
+    margin-bottom: 5px;
+    font-size: 16px;
+    color:dimgrey;
+}
+.uinput{
+   border: none;
+   width: 250px;
+   height: 30px; 
+   border-bottom: 1px solid gray;
+}
+.uright{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.upload{
+    display: flex;
+    align-items: center;
+}
+.uicon{
+    cursor: pointer;
+}
+.ubutton{
+    border-radius: 5px;
+    margin-top: 20px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #2E8B57;
+    color: white;
+}

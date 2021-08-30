@@ -1,0 +1,43 @@
+.transactions{
+    flex: 4;
+    height:800px;
+    margin-bottom: 25px;
+    
+    
+} 
+.newform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.fitems{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 20px;
+    padding-bottom: 20px;
+}
+
+.fitems>label{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: gray;
+}
+.fitems>label.slabel{
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: gray;
+}
+.reportTitle{
+    text-align: left;
+}
+
+.headingss{
+      padding-top: 15px;
+      padding-bottom: 15px;
+      font-size: 17px;
+      color: gray;
+  }

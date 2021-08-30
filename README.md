@@ -1,2 +1,2 @@
-# Group-Project-3
-Zero Waste
+# Zero-Waste
+3rd Year Group Project
