@@ -20,17 +20,7 @@ const cors = require("cors");
 app.use(cors());
 connectDB();
 
-
-
 app.use(express.json());
-
-
-app.get("*", (req, res) => {
-  let url = path.join(__dirname, '../client/build', 'index.html');
-  if (!url.startsWith('/app/')) // since we're on local windows
-    url = url.substring(1);
-  res.sendFile(url);
-});
 
 // Connecting Routes
 app.use("/api/auth", require("./routes/auth"));
@@ -81,6 +71,17 @@ app.use(sellerRateAndComment);
 
 // Error Handler Middleware
 app.use(errorHandler);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/client/build")));
+  app.get("*", (req,res)=>{
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+}else{
+  app.get("/",(req,res)=>{
+    res.send("Api running");
+  })
+}
 
 const PORT = process.env.PORT || 5000;
 
