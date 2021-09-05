@@ -129,7 +129,7 @@ function DirectPostForm() {
                 <div className="forms__container-c" >
                     <div className="container-c">
                         <div className="content-c">
-                            <div className="title-c">Add New Post</div>
+                            <div className="title-c">Edit Post</div>
                             <form onSubmit={handleSubmit} noValidate>
                                 <div className="user-details-c">
                                     <div className="input-box-c">
@@ -179,7 +179,7 @@ function DirectPostForm() {
                                     </div>
                                 </div>
                                 <div className="button-c">
-                                    <input type="submit" value="Add Post"></input>
+                                    <input type="submit" value="Edit Post"></input>
                                     <ToastContainer position="top-right" toastStyle={{ backgroundColor: "green" }} autoClose={3000} />
                                 </div>
                             </form>

@@ -13,14 +13,14 @@ const ABCschema = new schema({
     expiryDate : Date
 })
 
-const ABSmodel = mongoose.model('buyeroffersforsellers',ABSschema);
+const ABCmodel = mongoose.model('buyeroffersforcompanies',ABCschema);
 
-ABSrouter.get('/test2' , (req,res)=>{
+ABCrouter.get('/test5' , (req,res)=>{
     res.end('Hello')
 })
 
-ABSrouter.get('/getofferedsellers' , (req,res)=>{
-    ABSmodel.find({status:"accepted" } , function(docs,err){
+ABCrouter.get('/getofferedcompanies' , (req,res)=>{
+    ABCmodel.find({status:"accepted" } , function(docs,err){
         if(!err){
             res.send(docs)
         }
@@ -31,4 +31,4 @@ ABSrouter.get('/getofferedsellers' , (req,res)=>{
 })
 
 
-module.exports = ABSrouter
+module.exports = ABCrouter

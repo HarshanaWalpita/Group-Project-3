@@ -23,19 +23,49 @@ export default function PendingPosts() {
     const [sellerOffers, setSellerOffers] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [hasError, setHasError] = useState(false);
+  //  const WAIT_TIME = 5000;
 
     useEffect(() => {
-        getSellerPosts();
+        getAllPosts()
+    }, []);
+    useEffect(() => {
+        getAllOffers()
     }, []);
 
-    const getSellerPosts = async () => {
+    const getAllOffers = async () => {
+      //  setIsLoading(true)
+        await axios.get(`/viewAllOffers/${sellerId}`)
+            .then ((response)=>{
+                const allNotes=response.data.existingOffers;
+                setSellerOffers(allNotes);
+             //   setIsLoading(false)
+            })
+            .catch(error => {
+                console.error(`Error: ${error}`)
+                setHasError(true);
+            });
+    }
+    const getAllPosts = async () => {
         setIsLoading(true)
+        await axios.get(`/viewAllPosts/${sellerId}`)
+            .then ((response)=>{
+                const allNotes=response.data.existingPosts;
+                setSellerPosts(allNotes);
+                setIsLoading(false)
+            })
+            .catch(error => {
+                console.error(`Error: ${error}`)
+                setHasError(true);
+            });
+    }
+    const getSellerPosts = async () => {
+      //setIsLoading(true)
         try {
             const responce = await axios.get(`/sellerViewPosts/${sellerId}`)
             console.log(responce);
             setSellerPosts(responce.data.existingPosts);
             setSellerOffers(responce.data.existingOffers);
-            setIsLoading(false)
+          //  setIsLoading(false)
         } catch (error) {
             console.error(`Error: ${error}`);
             setHasError(true)
@@ -47,8 +77,8 @@ export default function PendingPosts() {
         axios.delete(`/deletePendingSellerPost/${id}`)
             .then((result) => {
                 toastNotification();
-                getSellerPosts();
-                getSellerPosts();
+                getAllPosts();
+                
             });
     };
 

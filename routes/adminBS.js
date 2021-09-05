@@ -10,7 +10,9 @@ const ABSschema = new schema({
     postId : String,
     status : String,
     value : Number,
-    expiryDate : Date
+    expiryDate : Date,
+    sellerName : String,
+    buyerName : String
 })
 
 const ABSmodel = mongoose.model('buyeroffersforsellers',ABSschema);
@@ -31,7 +33,7 @@ ABSrouter.get('/getofferedsellers' , (req,res)=>{
 })
 
 ABSrouter.post('/getuseroffers' , (req,res)=>{
-    ABSmodel.find({buyerId:req.body._id} , (docs,err)=>{
+    ABSmodel.find({$or:[{buyerId:req.body._id}, {sellerId:req.body._id}]} , (docs,err)=>{
         if(!err){
             res.send(docs)
         }

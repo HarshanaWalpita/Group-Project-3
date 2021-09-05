@@ -37,7 +37,23 @@ function PreviousPost() {
     }
     console.log(notes);
 
-    const wasteItem = notes?.filter(wasteItem => wasteItem.companyId===companyId);
+    const [offers, setOffers] = useState([]);
+
+    useEffect(()=>{
+        getAllOffers();
+    }, []);
+
+    const getAllOffers = async () => {
+        await axios.get(`/viewPendingCompanyOffersForCompany`)
+            .then ((response)=>{
+                const allNotes=response.data.existingOffers;
+                setOffers(allNotes);
+            })
+            .catch(error=>console.error(`Error: ${error}`));
+    }
+    console.log(offers);
+
+    const wasteItem = offers?.filter(wasteItem =>wasteItem.status==='accepted' && wasteItem.companyId===companyId);
     console.log(wasteItem);
 
     const toastNotification = () => {
@@ -73,27 +89,30 @@ function PreviousPost() {
                             <div className="posts__container-c">
                                 <div className="title-c"><h1>All Post</h1></div>
                                 <main className="grid-c">
-                                    {wasteItem.map((note,index)=> (
-                                        <article>
-                                            <div className="text-c">
-                                                <h3>Post ID: {index + 1}</h3>
-                                                <p>Post Type: {note.postType}</p>
-                                                <p>Waste Type: {note.wasteType}</p>
-                                                <p>Waste Item: {note.item}</p>
-                                                <p>Quantity: {note.quantity}</p>
-                                                <p>Available Date: {moment(note.avbDate).fromNow()}</p>
-                                                <div className="companylink-c">
-                                                    <Link style={{color: '#fff', textDecoration: 'none'}}
-                                                          to={`/company/companyeditpost/${note._id}`}>Edit Post <i className="fas fa-edit"></i></Link>
+                                    {notes.map((note,index)=> {
+                                        if(wasteItem.find(o=>o.postId === note._id) === undefined && note.companyId===companyId)
+                                            return (
+                                            <article>
+                                                <div className="text-c">
+                                                    <h3>Post ID: {index + 1}</h3>
+                                                    <p>Post Type: {note.postType}</p>
+                                                    <p>Waste Type: {note.wasteType}</p>
+                                                    <p>Waste Item: {note.item}</p>
+                                                    <p>Quantity: {note.quantity}</p>
+                                                    <p>Available Date: {moment(note.avbDate).fromNow()}</p>
+                                                    <div className="companylink-c">
+                                                        <Link style={{color: '#fff', textDecoration: 'none'}}
+                                                              to={`/company/companyeditpost/${note._id}`}>Edit Post <i className="fas fa-edit"></i></Link>
+                                                    </div>
+                                                    <div className="delete-button-c">
+                                                        <button onClick={() => {
+                                                            deletePost(note._id)
+                                                        }}>Delete Post <i className="fas fa-trash-alt"></i></button>
+                                                    </div>
                                                 </div>
-                                                <div className="delete-button-c">
-                                                    <button onClick={() => {
-                                                        deletePost(note._id)
-                                                    }}>Delete Post <i className="fas fa-trash-alt"></i></button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    ))}
+                                            </article>
+                                            );
+                                    })}
                                 </main>
                             </div>
                             <ToastContainer position="top-right" toastStyle={{ backgroundColor: "orange" }} autoClose={3000} />

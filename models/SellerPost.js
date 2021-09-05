@@ -4,7 +4,7 @@ const WasteItem = new mongoose.Schema({
     wasteType: String,
     item: String,
     avbDate: Date,
-    quantity: Number,
+    quantity: String,
     selectedFile: String,
 })
 

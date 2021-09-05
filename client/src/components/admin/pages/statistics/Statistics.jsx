@@ -5,6 +5,7 @@ import { PieChart, Pie, Legend, Tooltip } from "recharts";
 import Footer from '../../components/footer/Footer';
 import Navbar from '../../components/navbar/Navbar';
 import Sidebar from '../../components/sidebar/Sidebar';
+import { useHistory } from 'react-router-dom';
 
 
 const data01 = [
@@ -15,6 +16,11 @@ const data01 = [
 ];
 
 export default function Statistics() {
+
+    const history = useHistory();
+    if((!localStorage.getItem("authToken")) || !(localStorage.getItem("usertype")==="admin")){
+        history.push("/");
+    }
     return (
         <div>
             <Navbar />

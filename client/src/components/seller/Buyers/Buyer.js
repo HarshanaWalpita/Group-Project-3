@@ -109,7 +109,6 @@ export default function Buyer() {
                                                         <img src={buypic} alt="logo" />
                                                         <h1>{buyer.buyerName}</h1>
                                                         <p>{buyer.buyerAddress}</p>
-                                                        <p>{buyer.buyerDescription}</p>
                                                         <h4>Rathings</h4>
                                                         <div className="ratings-star">
                                                             <span className="fa fa-star checked"></span>

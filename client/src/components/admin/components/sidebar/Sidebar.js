@@ -24,10 +24,12 @@ export default function Sidebar() {
                         </li>
                         </Link> 
                         
+                        <Link to="/admin/reviewcomplaints" className="link">
                         <li className="sidebarListItem">
                             <Report className="sidebarIcon"/>
                             Review Complaints
                         </li>
+                        </Link>
 
                         <Link to="/admin/newUser" className="link">
                             <li className="sidebarListItem">

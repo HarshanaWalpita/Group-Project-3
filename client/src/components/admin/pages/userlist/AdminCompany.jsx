@@ -10,9 +10,12 @@ import Sidebar from '../../components/sidebar/Sidebar';
 
 
 export default function Userlist() {
+    const history = useHistory();
+    if((!localStorage.getItem("authToken")) || !(localStorage.getItem("usertype")==="admin")){
+        history.push("/");
+    }
 
     const [tdata, settdata] = useState([])
-    const history = useHistory()
 
     useEffect(()=>{
         axios.get('/api/adminuser/getcompanies').then(res=>{

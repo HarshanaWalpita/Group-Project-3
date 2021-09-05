@@ -8,9 +8,16 @@ import WidgetSm from './../widgetsSm/WidgetSm';
 import Navbar from './../navbar/Navbar';
 import Sidebar from './../sidebar/Sidebar';
 import Footer from './../footer/Footer';
+import { useHistory } from 'react-router-dom';
 
 
 export default function Home() {
+
+    const history = useHistory();
+    if((!localStorage.getItem("authToken")) || !(localStorage.getItem("usertype")==="admin")){
+        history.push("/");
+    }
+
     return (
         <div> 
             <Navbar/>

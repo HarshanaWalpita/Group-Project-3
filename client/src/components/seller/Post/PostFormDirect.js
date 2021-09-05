@@ -6,6 +6,8 @@ import { createPost, updatePost } from '../../../actions/posts';
 import './PostForm.css';
 import axios from 'axios';
 import e from 'cors';
+import { ToastContainer, toast, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function PublicPost({ currentId, setCurrentId }) {
 
@@ -27,6 +29,9 @@ export default function PublicPost({ currentId, setCurrentId }) {
     const [location, setLocation] = useState([]);
     const [contact, setContact] = useState("");
     const [thumbnail, setThumbnail] = useState("");
+    const [formErrors, setFormErrors] = useState({});
+    const [itemErrors, setItemErrors] = useState([]);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const wasteItem = {
         wasteType: '',
@@ -44,7 +49,14 @@ export default function PublicPost({ currentId, setCurrentId }) {
     ]);
     
     const addWasteItem = () => {
-        setWasteItemList([...wasteItemList, { ...wasteItem }]);
+        var item = wasteItemList[wasteItemList.length -1];
+        if (item.wasteType === "" || item.item === "" || item.selectedFile === "" || item.avbDate === null || item.quantity === null) {
+            alert("Waste Item Cannot Be empty");
+        } else {
+            console.log(item);
+            setWasteItemList([...wasteItemList, { ...wasteItem }]);
+            console.log(wasteItemList);
+        }
     };
 
     const handleCatChange = (e,base64) => {
@@ -68,8 +80,8 @@ export default function PublicPost({ currentId, setCurrentId }) {
  
   
   
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const formSubmit = async (e) => {
+       // e.preventDefault();
         const newPostData = {
             sellerId,
             sellerName,
@@ -88,6 +100,8 @@ export default function PublicPost({ currentId, setCurrentId }) {
             axios.post('/sellerAddPost', newPostData).then((res) => {
                 console.log(res);
                 alert("Post Added Sucessfully!");
+                toastNotification();
+                clear();
             }
             ).catch((err) => {
                 alert(err)
@@ -98,7 +112,53 @@ export default function PublicPost({ currentId, setCurrentId }) {
         
         }
     };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setFormErrors(validate());
+        setIsSubmitting(true);
+    };
+    const toastNotification = () => {
+        toast.info("Post added successfully !", {
+            transition: Slide
+        })
+    };
+    useEffect(() => {
+        if (Object.keys(formErrors).length === 0 && isSubmitting) {
+            formSubmit();
+        }
+    }, [formErrors]);
+
+    const date = new Date();
+    date.setDate(date.getDate() + 28);
+
+    const date2 = new Date();
+    date2.setDate(date2.getDate());
+
+    const validate = () => {
+        let errors = {};
+        const regex = /^[0-9]+$/;
+        if (district === "" || district === null) {
+            errors.district = "Please select district";
+        }
+        if (address === "" || address === null) {
+            errors.address = "Please add your address";
+        }
+        if (contact === "" || contact === null) {
+            errors.contact = "Please add your contact number";
+        } else if (!regex.test(contact)) {
+            errors.contact = "invalid format";
+        } else if (contact.length !== 10) {
+            errors.contact = "invalid format";
+        }
+        if (location.length === 0) {
+            errors.location = "Please add Location";
+        }
+        
+        return errors;
+      
+    };
     
+    console.log("itemErr",itemErrors);
 
     const getlocation = (e) => {
         e.preventDefault();
@@ -131,7 +191,17 @@ export default function PublicPost({ currentId, setCurrentId }) {
      //   console.log(wasteItemList[idx]);
         
     }
-    
+    const clear = () => {
+        console.log("clear");
+        setDistrict('');
+        setAddress('');
+        setContact();
+        setThumbnail('');
+        setLocation([]);
+        setWasteItemList([{ ...wasteItem }]);
+            
+            
+    }
     
     
     return (
@@ -174,7 +244,10 @@ export default function PublicPost({ currentId, setCurrentId }) {
                         <option value="Rathnapura">Rathnapura</option>
                         <option value="Kegalle">Kegalle</option>
 
-                    </select>
+                        </select>
+                        {formErrors.district && (
+                                        <span className="error" style={{color:'red'}}>{formErrors.district}</span>
+                        )}
                     </div>
                    
                 
@@ -187,7 +260,10 @@ export default function PublicPost({ currentId, setCurrentId }) {
                             onChange={(e) => {
                                 setAddress(e.target.value)
                             }}
-                        required></input>
+                            required></input>
+                        {formErrors.address && (
+                                        <span className="error" style={{color:'red'}}>{formErrors.address}</span>
+                                    )}
                 </div>
                     
                 <div className="seller-add-post-row"> 
@@ -197,11 +273,17 @@ export default function PublicPost({ currentId, setCurrentId }) {
                             name="contact"
                             type="tel"
                            onChange={(e) => setContact(e.target.value)}
-                        required></input>
+                            required></input>
+                        {formErrors.contact && (
+                                        <span className="error" style={{color:'red'}}>{formErrors.contact}</span>
+                                    )}
                 </div>
                 <div className="seller-add-post-row">
                     <label className="seller-add-post-label" for="location">Location</label>
-                    <a href="#" onClick={(e) => { getlocation(e) }}>Get Location</a>
+                        <a href="#" onClick={(e) => { getlocation(e) }}>Get Location</a>
+                        {formErrors.location && (
+                                        <span className="error" style={{color:'red'}}>{formErrors.location}</span>
+                                    )}
                 </div>
                 <div className="seller-add-post-row">
                         <label className="seller-add-post-label" for="thumbnail_img">Add Thumbnail Image</label>

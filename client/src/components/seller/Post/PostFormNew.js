@@ -6,6 +6,8 @@ import { createPost, updatePost } from '../../../actions/posts';
 import './PostForm.css';
 import axios from 'axios';
 import e from 'cors';
+import { ToastContainer, toast, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function PublicPost({ currentId, setCurrentId }) {
 
@@ -25,6 +27,9 @@ export default function PublicPost({ currentId, setCurrentId }) {
     const [location, setLocation] = useState([]);
     const [contact, setContact] = useState("");
     const [thumbnail, setThumbnail] = useState("");
+    const [formErrors, setFormErrors] = useState({});
+    const [itemErrors, setItemErrors] = useState([]);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     var wasteItem = {
         wasteType: '',
@@ -42,8 +47,14 @@ export default function PublicPost({ currentId, setCurrentId }) {
     ]);
     
     const addWasteItem = () => {
-        setWasteItemList([...wasteItemList, { ...wasteItem }]);
-        console.log(wasteItemList);
+        var item = wasteItemList[wasteItemList.length -1];
+        if (item.wasteType === "" || item.item === "" || item.selectedFile === "" || item.avbDate === null || item.quantity === null) {
+            alert("Waste Item Cannot Be empty");
+        } else {
+            console.log(item);
+            setWasteItemList([...wasteItemList, { ...wasteItem }]);
+            console.log(wasteItemList);
+        }      
     };
 
     const handleCatChange = (e,base64) => {
@@ -67,8 +78,8 @@ export default function PublicPost({ currentId, setCurrentId }) {
  
   
   
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const formSubmit = async () => {
+       // e.preventDefault();
         const newPostData = {
             sellerId,
             sellerName,
@@ -87,18 +98,66 @@ export default function PublicPost({ currentId, setCurrentId }) {
             axios.post('/sellerAddPost', newPostData).then((res) => {
                 console.log(res);
                 alert("Post Added Sucessfully!");
+                toastNotification();
+                clear();
             }
             ).catch((err) => {
                 alert(err)
             })
+          
       
         } else {
         
         
         }
     };
-    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+       setFormErrors(validate());
+        setIsSubmitting(true);
+    };
+    const toastNotification = () => {
+        toast.info("Post added successfully !", {
+            transition: Slide
+        })
+    };
+    useEffect(() => {
+        if (Object.keys(formErrors).length === 0 && isSubmitting) {
+            formSubmit();
+        }
+    }, [formErrors]);
 
+    const date = new Date();
+    date.setDate(date.getDate() + 28);
+
+    const date2 = new Date();
+    date2.setDate(date2.getDate());
+
+    const validate = () => {
+        let errors = {};
+        const regex = /^[0-9]+$/;
+        if (district === "" || district === null) {
+            errors.district = "Please select district";
+        }
+        if (address === "" || address === null) {
+            errors.address = "Please add your address";
+        }
+        if (contact === "" || contact === null) {
+            errors.contact = "Please add your contact number";
+        } else if (!regex.test(contact)) {
+            errors.contact = "invalid format";
+        } else if (contact.length !== 10) {
+            errors.contact = "invalid format";
+        }
+        if (location.length === 0) {
+            errors.location = "Please add Location";
+        }
+        
+        return errors;
+      
+    };
+    
+    console.log("itemErr",itemErrors);
     const getlocation = (e) => {
         e.preventDefault();
         if ("geolocation" in navigator) {
@@ -111,6 +170,7 @@ export default function PublicPost({ currentId, setCurrentId }) {
                     longitude: position.coords.longitude
                 }
                 setLocation(locationTp)
+                alert("location added");
             });
         } else {
             console.log("Not Available");
@@ -130,8 +190,21 @@ export default function PublicPost({ currentId, setCurrentId }) {
      //   console.log(wasteItemList[idx]);
         
     }
-    
-    
+    // form validation
+
+    const [wasteTypeError, setWasteTypeError] = useState([]);
+
+    const clear = () => {
+        console.log("clear");
+        setDistrict('');
+        setAddress('');
+        setContact();
+        setThumbnail('');
+        setLocation([]);
+        setWasteItemList([{ ...wasteItem }]);
+            
+            
+    }
     return (
                  
         <div className="seller-add-post-background">
@@ -142,11 +215,15 @@ export default function PublicPost({ currentId, setCurrentId }) {
             <form className="seller-add-new-post-form" autoComplete="off" noValidate onSubmit={handleSubmit}>
                     <div className="seller-add-post-row">
                     <label className="seller-add-post-label">District</label>
-                    <select className="seller-add-post-select" name="option"
-                        onChange={(e) => {
-                         setDistrict(e.target.value)
-                     }}>
-                        <option value="Colombo" selected>Colombo</option>
+                    <select className="seller-add-post-select" name="option" value={district}
+                            onChange={(e) => {
+                                console.log(e);
+                                    setDistrict(e.target.value) 
+                            
+                        
+                            }}>
+                        <option value="" selected>Choose District</option>    
+                        <option value="Colombo">Colombo</option>
                         <option value="Gampaha">Gampaha</option>
                         <option value="Kaluthara">Kaluthara</option>
                         <option value="Kandy">Kandy</option>
@@ -172,7 +249,11 @@ export default function PublicPost({ currentId, setCurrentId }) {
                         <option value="Rathnapura">Rathnapura</option>
                         <option value="Kegalle">Kegalle</option>
 
-                    </select>
+                        </select>
+                        {formErrors.district && (
+                                        <span className="error" style={{color:'red'}}>{formErrors.district}</span>
+                        )}
+                        
                     </div>
                    
                 
@@ -182,10 +263,17 @@ export default function PublicPost({ currentId, setCurrentId }) {
                             id="input"
                             name="address"
                             type="text"
+                            value={address}
                             onChange={(e) => {
-                                setAddress(e.target.value)
+                               
+                                    setAddress(e.target.value)
+                                
                             }}
-                        required></input>
+                            ></input>
+                        {formErrors.address && (
+                                        <span className="error" style={{color:'red'}}>{formErrors.address}</span>
+                                    )}
+                    
                 </div>
                     
                 <div className="seller-add-post-row"> 
@@ -194,18 +282,26 @@ export default function PublicPost({ currentId, setCurrentId }) {
                             id="input"
                             name="contact"
                             type="tel"
+                            value={contact}
                            onChange={(e) => setContact(e.target.value)}
-                        required></input>
+                            required></input>
+                        {formErrors.contact && (
+                                        <span className="error" style={{color:'red'}}>{formErrors.contact}</span>
+                                    )}
                 </div>
                 <div className="seller-add-post-row">
                     <label className="seller-add-post-label" for="location">Location</label>
-                    <a href="#" onClick={(e) => { getlocation(e) }}>Get Location</a>
+                        <a href="#" onClick={(e) => { getlocation(e) }}>Get Location</a>
+                        {formErrors.location && (
+                                        <span className="error" style={{color:'red'}}>{formErrors.location}</span>
+                                    )}
                 </div>
                 <div className="seller-add-post-row">
                         <label className="seller-add-post-label" for="thumbnail_img">Add Thumbnail Image</label>
                         <input className="Selected-file"
                             type="file"
                             accept="image/*"
+                          
                             onChange={
                                 (e) => {
                                    // console.log(e);
@@ -242,7 +338,8 @@ export default function PublicPost({ currentId, setCurrentId }) {
                   <div className="seller-add-post-row">
                       <label className="seller-add-post-label">Select Waste Type</label>
                       <select className="wasteType" name="wastetype" value={val.wasteType} data-idx={idx} onChange={handleCatChange}>
-                    <option value="plastic">Plastic</option>
+                        <option value="">Choose Waste Type</option>
+                          <option value="plastic">Plastic</option>
                     <option value="glass">Glass</option>
                     <option value="paper">Paper</option>
                     <option value="polythene">Polythene</option>
@@ -250,7 +347,8 @@ export default function PublicPost({ currentId, setCurrentId }) {
                     <option value="electronic">Electronic</option>
                     <option value="other">Other</option>
 
-                  </select>
+                      </select>
+                      
                   </div>
                   <div className="seller-add-post-row"> 
                     <label className="seller-add-post-label" htmlFor={itemid}>Item</label>
@@ -262,7 +360,7 @@ export default function PublicPost({ currentId, setCurrentId }) {
                         value={wasteItemList[idx].item}
                         onChange={handleCatChange}
                         
-                    ></input>
+                    required></input>
                 </div>
                 <div className="seller-add-post-row"> 
                     <label className="seller-add-post-label" htmlFor={quantityid}>Quantity</label>
@@ -273,7 +371,7 @@ export default function PublicPost({ currentId, setCurrentId }) {
                           type="text"
                           value={wasteItemList[idx].quantity}
                         onChange={handleCatChange}
-                    ></input>
+                    required></input>
                 </div>
                 <div className="seller-add-post-row"> 
                     <label className="seller-add-post-label" for={avbDateid}>Available On</label>
@@ -284,7 +382,7 @@ export default function PublicPost({ currentId, setCurrentId }) {
                           type="date"
                           value={wasteItemList[idx].avbDate}
                         onChange={handleCatChange}
-                    ></input>
+                    required></input>
                 </div>
                   
                   <div className="seller-add-post-row">
@@ -311,7 +409,7 @@ export default function PublicPost({ currentId, setCurrentId }) {
                                   
                               }
                           }
-                      ></input>
+                      required></input>
                       <img src={val.selectedFile}></img>
                 </div>
              

@@ -13,18 +13,7 @@ export const SellerSidebarData = [
         icon: <FaIcons.FaAdversal />,
         cName: 'nav-text'
     },
-    {
-        title: 'Notifications',
-        path: '/seller/notification',
-        icon: <MdIcons.MdLocalOffer />,
-        cName: 'nav-text'
-    },
-    {
-        title: 'Add Complain',
-        path: '/seller/complaint',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'nav-text'
-    },
+    
     {
         title: 'Stats',
         path: '/seller/stats',

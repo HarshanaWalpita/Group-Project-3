@@ -4,10 +4,15 @@ import Footer from '../../components/footer/Footer';
 import Navbar from '../../components/navbar/Navbar';
 import Sidebar from '../../components/sidebar/Sidebar';
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 
 
 export default function Newuser() {
+
+  const history = useHistory();
+  if((!localStorage.getItem("authToken")) || !(localStorage.getItem("usertype")==="admin")){
+      history.push("/");
+  }
 
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");

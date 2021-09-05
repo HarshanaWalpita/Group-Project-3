@@ -5,10 +5,15 @@ import Footer from '../../components/footer/Footer';
 import Navbar from '../../components/navbar/Navbar';
 import Sidebar from '../../components/sidebar/Sidebar';
 import jsPDF from "jspdf";
+import { useHistory } from 'react-router-dom';
 
 
 export default function SalesReport() {
 
+    const history = useHistory();
+    if((!localStorage.getItem("authToken")) || !(localStorage.getItem("usertype")==="admin")){
+        history.push("/");
+    }
 
 
     return (

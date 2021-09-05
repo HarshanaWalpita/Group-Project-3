@@ -2,13 +2,18 @@ import React, { useState } from 'react'
 import './userlist.css'
 import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from '@material-ui/icons';
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import Footer from '../../components/footer/Footer';
 import Navbar from '../../components/navbar/Navbar';
 import Sidebar from '../../components/sidebar/Sidebar';
 
 
 export default function Userlist() {
+
+    const history = useHistory();
+    if((!localStorage.getItem("authToken")) || !(localStorage.getItem("usertype")==="admin")){
+        history.push("/");
+    }
 
     const handleDelete = (id)=>{
         setdata(data.filter(item=>item.id !== id))

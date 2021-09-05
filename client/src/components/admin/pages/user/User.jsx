@@ -7,8 +7,13 @@ import Navbar from '../../components/navbar/Navbar';
 import Sidebar from '../../components/sidebar/Sidebar';
 import { useEffect } from 'react';
 import axios from 'axios'
+import { useHistory } from 'react-router-dom';
 
 export default function User() {
+    const history = useHistory();
+    if((!localStorage.getItem("authToken")) || !(localStorage.getItem("usertype")==="admin")){
+        history.push("/");
+    }
 
     const [_id,setid] = useState(window.location.pathname.split("/")[3]);
 

@@ -6,8 +6,14 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import { DataGrid } from '@material-ui/data-grid';
 import { useEffect } from 'react';
 import axios from 'axios'
+import { useHistory } from 'react-router-dom';
 
 export default function UserReport() {
+
+    const history = useHistory();
+    if((!localStorage.getItem("authToken")) || !(localStorage.getItem("usertype")==="admin")){
+        history.push("/");
+    }
 
     const [id, setid] = useState(window.location.pathname.split("/")[3]);
     const [user, setuser] = useState('')
@@ -41,8 +47,8 @@ export default function UserReport() {
 
 
     const columns = [
-        { field: 'sellerId', headerName: 'Seller ID', width: 300 },
-        { field: 'buyerId', headerName: 'Buyer ID', width: 300 },
+        { field: 'sellerName', headerName: 'Seller Name', width: 200 },
+        { field: 'buyerName', headerName: 'Buyer Name', width: 200 },
         {
             field: 'offerCreatedAt',
             headerName: 'Created Date',

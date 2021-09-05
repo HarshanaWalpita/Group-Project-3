@@ -36,6 +36,9 @@
 .seller-stat-card{
     align-items: center;
 }
+.seller-stat-card-detail{
+    position: relative;
+}
 .seller-stat-card-detail p{
     font-size: 64px;
 }
