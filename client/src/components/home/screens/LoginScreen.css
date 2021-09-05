@@ -101,3 +101,16 @@
   text-align: center;
   margin: 0.5rem 0;
 }
+@media (max-width: 500px) {
+  .btn-h {
+    display: flex;
+    padding-left: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-h {
+    display: flex;
+    padding-left: 100px;
+  }
+}
