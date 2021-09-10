@@ -15,8 +15,8 @@ function OfferPost() {
       const companyId=(localStorage.getItem("userId"));
       console.log(companyId);
 
-        const { postId } = useParams();
-        console.log(postId);
+        const { postId, postQuantity } = useParams();
+        console.log(postId, postQuantity);
 
       const [offers, setOffers] = useState([]);
 
@@ -50,28 +50,42 @@ function OfferPost() {
         );
         console.log(wasteItem2);
 
-        const len = wasteItem2.length;
-        console.log(len);
+    const wasteItemLength = wasteItem2.length;
+    console.log(wasteItemLength);
+
+    let quantity=0;
+
+    for (let i = 0; i < wasteItemLength; i++) {
+        quantity += wasteItem2[i].quantity
+    }
+
+    console.log(quantity);
 
       const wasteItem = offers?.filter(
           wasteItem => wasteItem.status==='pending' &&
           wasteItem.companyId===companyId &&
           new Date(wasteItem.expiryDate)>=date2 &&
           wasteItem.postId===postId &&
-          len === 0
+          quantity<postQuantity
       );
       console.log(wasteItem);
 
+      const availableQuantity=postQuantity-quantity;
+
         const history = useHistory();
 
-        const acceptOffer = (id) => {
-            const data = {
-                status:'accepted'
-            };
-            axios.patch(`/editCompanyOfferStatus/${id}`, data)
-                .then((result) => {
-                    history.push('/company/ongoingp');
-                });
+        const acceptOffer = (id, quantity) => {
+            if(quantity>availableQuantity){
+                alert("You cannot accept this offer because the offer quantity is higher that your post's available quantity!");
+            }else{
+                const data = {
+                    status:'accepted'
+                };
+                axios.patch(`/editCompanyOfferStatus/${id}`, data)
+                    .then((result) => {
+                        history.push('/company/ongoingp');
+                    });
+            }
         };
 
         const rejectOffer = (id) => {
@@ -101,6 +115,11 @@ function OfferPost() {
                           </div> :
                       <div className="tables-c">
                         <div className="tables__container-c">
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <br></br>
                           <h1>Offers</h1>
                           <table className="table-c">
                             <thead>
@@ -126,7 +145,7 @@ function OfferPost() {
                                 <td data-label="Action">
                                   <span className="action_btn-c">
                                     <button onClick={() => {
-                                        acceptOffer(note._id)
+                                        acceptOffer(note._id, note.quantity)
                                     }}>Accept</button>
                                     <button onClick={() => {
                                         rejectOffer(note._id)
@@ -137,6 +156,14 @@ function OfferPost() {
                             ))}
                             </tbody>
                           </table>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <br></br>
                         </div>
                       </div>
                           }

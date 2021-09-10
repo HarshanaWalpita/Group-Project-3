@@ -43,6 +43,25 @@
     font-size: 64px;
 }
 
+.seller-delete-profile-button button{
+    background: #205072;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    width: 200px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 200px;
+    margin-bottom: 100px;
+}
+
+.seller-delete-profile-button button:hover{
+    opacity: 0.8;
+    transition: .3s;
+}
+
 @media (max-width: 600px){
     .seller-stat-card-column{
         width: 100%;

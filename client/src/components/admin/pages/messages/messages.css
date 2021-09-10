@@ -1,0 +1,19 @@
+.reviewcomp{
+    flex: 4;
+}
+
+.headm{
+    text-align: left;
+    padding-bottom: 10px;
+}
+.revtable{
+    margin-top: 25px;
+    }
+
+    .revicons{
+        display: flex;
+        flex:33.33%;
+        justify-content: center;
+        color: cadetblue;
+        cursor: pointer;
+    }

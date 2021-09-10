@@ -113,7 +113,7 @@ function DirectPostForm() {
     };
 
     const toastNotification = () => {
-        toast.info("You're edited post successfully !", {
+        toast.info("Edited successfully !", {
             transition: Slide
         })
     };
@@ -160,7 +160,7 @@ function DirectPostForm() {
                                         )}
                                     </div>
                                     <div className="input-box-c">
-                                        <span className="date-c">Available Date</span>
+                                        <span className="date-c">Required Date</span>
                                         <input type="date" name="avbDate" id="avbDate" placeholder="Enter date" value={d2}
                                                onChange={handleChange}
                                                className={formErrors.avbDate && "input-error"}></input>

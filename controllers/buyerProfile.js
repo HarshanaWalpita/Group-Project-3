@@ -49,3 +49,16 @@ exports.buyerViewDetails = async (req, res) => {
         });
     });
 };
+
+exports.buyerUpdateDetails = async (req, res) => {
+    let id = req.params.id
+    const { buyerDescription, buyerAddress, buyerContact, favouriteAreas, favouriteWasteTypes, favouriteWasteItems, buyerImages } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+
+    const updatedPost = { buyerDescription, buyerAddress, buyerContact, favouriteAreas, favouriteWasteTypes, favouriteWasteItems, buyerImages, _id: id };
+
+    await BuyerDetails.findByIdAndUpdate(id, updatedPost, { new: true });
+
+    res.json(updatedPost);
+};

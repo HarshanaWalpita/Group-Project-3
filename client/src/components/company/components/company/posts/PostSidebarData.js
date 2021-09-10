@@ -11,23 +11,23 @@ export const PostSidebarData = [
     },
 
     {
-        title: 'Ongoing Post',
+        title: 'New Posts',
+        path: '/company/previousp',
+        icon: <FaIcons.FaClone />,
+        cName: 'nav-text-c'
+    },
+
+    {
+        title: 'Ongoing Posts',
         path: '/company/ongoingp',
         icon: <FaIcons.FaAudioDescription />,
         cName: 'nav-text-c'
     },
 
     {
-        title: 'Accpeted Post',
+        title: 'Accpeted Posts',
         path: '/company/acceptedp',
         icon: <FaIcons.FaCheckSquare />,
-        cName: 'nav-text-c'
-    },
-
-    {
-        title: 'All Posts',
-        path: '/company/previousp',
-        icon: <FaIcons.FaClock />,
         cName: 'nav-text-c'
     },
     

@@ -105,7 +105,7 @@ function AddComplaintPage() {
     };
 
     const toastNotification = () => {
-        toast.info("You're added complaint successfully !", {
+        toast.info("You added the complaint successfully !", {
             transition: Slide
         })
     };
@@ -120,14 +120,14 @@ function AddComplaintPage() {
                 <br></br>
                 <br></br>
                 <br></br>
-                <div className="container-b">
-                    <div className="title-b">Add Complaints</div>
-                    <div className="content-b">
-                        <form className="buyer-form-b" onSubmit={handleSubmit} noValidate>
-                            <div className="user-details-b">
-                                <div className="input-box-b">
-                                    <span className="details-b">Complaint Details</span>
-                                    <input type="text" name="complaintDetails" id="complaintDetails" placeholder="Enter details" value={formValues.complaintDetails}
+                <div className="container-c">
+                    <div className="title-c">Add Complaints</div>
+                    <div className="content-c">
+                        <form className="buyer-form-c" onSubmit={handleSubmit} noValidate>
+                            <div className="user-details-c">
+                                <div className="input-box-d">
+                                    <span className="details-c">Complaint Details</span>
+                                    <input type="text" name="complaintDetails" id="complaintDetails-c" placeholder="Enter details" value={formValues.complaintDetails}
                                            onChange={handleChange}
                                            className={formErrors.complaintDetails && "input-error"}></input>
                                     {formErrors.complaintDetails && (
@@ -135,7 +135,7 @@ function AddComplaintPage() {
                                     )}
                                 </div>
                             </div>
-                            <div className="button-b">
+                            <div className="button-c">
                                 <input type="submit" value="Add Complaint"></input>
                                 <ToastContainer position="top-right" toastStyle={{ backgroundColor: "green" }} autoClose={3000} />
                             </div>

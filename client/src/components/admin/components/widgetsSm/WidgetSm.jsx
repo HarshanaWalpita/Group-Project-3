@@ -24,8 +24,8 @@ export default function WidgetSm() {
                 <li className="widgetSmListitem">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR2vHQRDe1veliFrYfwBIBIT-eXflDETxUgnnVgpXd1L1PYTT4skyxtkUzVDmuQ6JKkZWHyijWfMhuTw&usqp=CAU" alt="" className="widgetSmImg" />
                     <div className="widgetSmUser">
-                        <span className="widgetSmUsername">Ruvidu Munasinghe</span>
-                        <span className="widgetSmrole">Admin</span>
+                        <span className="widgetSmUsername">Harshana Walpita</span>
+                        <span className="widgetSmrole">Buyer</span>
                     </div>
                     <button className="widgetSmbutton">
                         <Visibility className='widgetSmIcon'/>
@@ -37,8 +37,8 @@ export default function WidgetSm() {
                 <li className="widgetSmListitem">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR2vHQRDe1veliFrYfwBIBIT-eXflDETxUgnnVgpXd1L1PYTT4skyxtkUzVDmuQ6JKkZWHyijWfMhuTw&usqp=CAU" alt="" className="widgetSmImg" />
                     <div className="widgetSmUser">
-                        <span className="widgetSmUsername">Ruvidu Munasinghe</span>
-                        <span className="widgetSmrole">Admin</span>
+                        <span className="widgetSmUsername">Isuru Munasinghe</span>
+                        <span className="widgetSmrole">Seller</span>
                     </div>
                     <button className="widgetSmbutton">
                         <Visibility className='widgetSmIcon'/>

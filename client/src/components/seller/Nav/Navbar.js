@@ -23,7 +23,7 @@ function Navbar() {
     return (
         <>
             <nav className='navbar-b'>
-                <Link to='/' className='navbar-logo-b' onClick={closeMobileMenu}>
+                <Link to='/seller' className='navbar-logo-b' onClick={closeMobileMenu}>
                     ZERO-WASTE
                     <i class='fab fa-firstdraft' />
                 </Link>

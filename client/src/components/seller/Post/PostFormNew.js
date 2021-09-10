@@ -198,7 +198,7 @@ export default function PublicPost({ currentId, setCurrentId }) {
         console.log("clear");
         setDistrict('');
         setAddress('');
-        setContact();
+        setContact('');
         setThumbnail('');
         setLocation([]);
         setWasteItemList([{ ...wasteItem }]);

@@ -13,13 +13,13 @@ export default function Post() {
     console.log(postId);
 
     const [postData, setPostData] = useState({});
-    const [offers, setOfferList] = useState([]);
+    const [offerList, setOfferList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [hasError, setHasError] = useState(false)
-    const offerList = offers?.filter(o => o.wasteItemsListId === "completePost");
+   // const offerList = offers?.filter(o => o.wasteItemsListId === "completePost");
     var offNum = offerList.length;
     console.log("off",offNum)
-
+ //   console.log(offers);
     console.log("offersarray",offerList);
 
     useEffect(() => {
@@ -28,15 +28,16 @@ export default function Post() {
 
     
     const getpost = async () => {
-        setIsLoading(true)
+      //  setIsLoading(true)
         try {
+            //gets only complete post offers with the post
             const response = await axios.get(`/sellerViewOnePost/${postId}`)
             console.log(response);
             const allPost = response.data.post;
             setPostData(allPost);
             const allOffers = response.data.offer;
             setOfferList(allOffers);
-            setIsLoading(false)
+        //    setIsLoading(false)
         } catch (error) {
             console.error(`Error: ${error}`)
             setHasError(true)
@@ -103,9 +104,13 @@ export default function Post() {
                                                     <img src={item.selectedFile} alt="img" />
                                                     <p>Quantity : { item.quantity}</p>
                                                     <p>Available On :{moment(item.avbDate).format("LLL")}</p>
-                                                    <Link style={{ textDecoration: 'none' }}
+
+                                                    <div className="seller-view-offer-button">
+                                                    <Link style={{ textDecoration: 'none', color:"#ffffff"}}
                                                                 to={`/seller/viewitem/${item._id}`}>View Item Offers <i
                                                                     className="fas fa-angle-double-right"></i></Link>
+                                                    </div>
+
                                                 </div>
                                                 
                                             </div>
@@ -116,49 +121,53 @@ export default function Post() {
                                     })}
                         </div>
                                 <div className="seller-post-offers">
-                                    <h1>Offers For Colmplete Post</h1>
+                                    <div style={{marginBottom:"30px"}}><h1>Offers For Complete Post</h1></div>
                                     <div>
-                                        <table className="seller-accepted-offers-table">
-                                        <tr>
-                                            <th>Offer Id</th>
-                                            <th>Buyer</th>
-                                            <th>Collecting Date</th>
-                                            <th>Collecting Time (Aprox:)</th>
-                                            <th>Offer(Rs)</th>
-                                            <th>Offer Exp: Date</th>
-                                            <th>Action</th>
-                                            </tr>
-                                           
-                                    {offerList.map((offer, offerindex) => {
-                                        if (offNum !== 0) {
-                                            return (
+                                        {offNum === 0 ?
+                                            <div>There are no Post Offers Available Now</div>
+                                            :
+                                        
+                                            <table className="seller-accepted-offers-table">
                                                 <tr>
-                                                    <td>{offerindex + 1}</td>
-                                                    <td>{offer.buyer}</td>
-                                                    <td>{moment(offer.collectingDate).format("LLL")}</td>
-                                                    <td>{offer.collectingTime}</td>
-                                                    <td>{offer.value}</td>
-                                                    <td>{moment(offer.expiryDate).format("LLL")}</td>
-                                                    <td><a hreff="#" className="offer-list-accept" onClick={() => {
-                                                        let offerId = offer._id;
-                                                        console.log(offerId);
-                                                        sellerAcceptOffer(offerId);
-                                                    }}>Accept</a><a className="offer-list-decline" hreff="#">Decline</a> </td>
+                                                    <th>Offer Id</th>
+                                                    <th>Buyer</th>
+                                                    <th>Collecting Date</th>
+                                                    <th>Collecting Time (Aprox:)</th>
+                                                    <th>Offer(Rs)</th>
+                                                    <th>Offer Exp: Date</th>
+                                                    <th>Action</th>
                                                 </tr>
+                                           
+                                                {offerList.map((offer, offerindex) => {
+                                                    if (offNum !== 0) {
+                                                        return (
+                                                            <tr>
+                                                                <td>{offerindex + 1}</td>
+                                                                <td>{offer.buyer}</td>
+                                                                <td>{moment(offer.collectingDate).format("LLL")}</td>
+                                                                <td>{offer.collectingTime}</td>
+                                                                <td>{offer.value}</td>
+                                                                <td>{moment(offer.expiryDate).format("LLL")}</td>
+                                                                <td><a hreff="#" className="offer-list-accept" onClick={() => {
+                                                                    let offerId = offer._id;
+                                                                    console.log(offerId);
+                                                                    sellerAcceptOffer(offerId);
+                                                                }}>Accept</a><a className="offer-list-decline" hreff="#">Decline</a> </td>
+                                                            </tr>
                                                     
                                                                                                       
-                                            )
-                                        } else {
-                                            return (
+                                                        )
+                                                    } else {
+                                                        return (
                                                
-                                               <span>No Offers</span>
+                                                            <span>No Offers</span>
                                               
-                                            )
-                                        }
-                                    })}
-                                        </table>
+                                                        )
+                                                    }
+                                                })}
+                                            </table>
                                                   
-
+                                        }
                                     </div>  
                         </div>
                             </div>

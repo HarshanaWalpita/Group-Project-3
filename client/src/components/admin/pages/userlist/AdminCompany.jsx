@@ -57,7 +57,7 @@ export default function Userlist() {
 
                         <DeleteOutline className="userlistDelete" onClick={() => { if (window.confirm('Are you sure you wish to delete this user?')) deleteuser(params.row._id) } } />
 
-                        <Link to={"/admin/userreport/" + params.row._id}>
+                        <Link to={"/admin/companyreport/" + params.row._id}>
                             <Assessment className="userlistreport" />
                         </Link>
                     </div>

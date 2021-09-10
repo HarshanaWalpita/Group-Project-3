@@ -54,6 +54,7 @@
     font-weight: bold;
     border-radius: 3px;
     transition: 0.1s ease-in-out;
+    margin-bottom: 3px;
 }
 
 .action_btn-b a:nth-child(1) {

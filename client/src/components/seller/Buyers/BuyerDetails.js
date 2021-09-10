@@ -149,15 +149,21 @@ export default function BuyerDetails() {
                                             </ul>
                         
                                             <div className="seller-sell-now">
-                                                <Link style={{ textDecoration: 'none' }}
+
+                                                <div className="seller-view-offer-button-2">
+                                                <Link style={{ textDecoration: 'none', color:"#ffffff"}}
                                                     to={`/seller/directpost/${buyer.buyerId}`}>Sell Now <i
                                                         className="fas fa-angle-double-right"></i></Link>
+                                                </div>
                                             </div>
                                             
                                             <div className="seller-sell-now">
-                                                <Link style={{ textDecoration: 'none' }}
+                                                <div className="seller-view-offer-button-2">
+                                                <Link style={{ textDecoration: 'none', color:"#ffffff"}}
                                                     to={`/seller/addcomplaint/${buyerId}`}>Add Complaint <i
                                                         className="fas fa-angle-double-right"></i></Link>
+                                                </div>
+
                                             </div>
                         
                         
@@ -167,7 +173,8 @@ export default function BuyerDetails() {
                                     </div>
                                 </div>
                             </div>
-                            <div>
+
+                            <div className="seller-rate-component">
                                 <RateAndCommentArea userId={buyerId} userName={buyer.buyerName} />
                             </div>
                             

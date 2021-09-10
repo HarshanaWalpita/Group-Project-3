@@ -75,6 +75,30 @@ form .input-box-c span.details-c{
 .user-details-c .input-box-c input:valid{
     border-color: #9b59b6;
 }
+form .user-details-c .input-box-d{
+    margin-bottom: 15px;
+    width: calc(100%  - 20px);
+}
+form .input-box-d span.details-c{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.user-details-c .input-box-d input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+.user-details-c .input-box-d input:focus,
+.user-details-c .input-box-d input:valid{
+    border-color: #9b59b6;
+}
 form .category-c{
     display: flex;
     width: 80%;

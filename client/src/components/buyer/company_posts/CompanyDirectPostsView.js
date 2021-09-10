@@ -53,6 +53,30 @@ function CompanyDirectPostsView() {
     const wasteItem = offers?.filter(wasteItem => wasteItem.status==='accepted');
     console.log(wasteItem);
 
+    const checkWeight = (cId, pId) => {
+        const wasteItem2 = offers?.filter(wasteItem => wasteItem.status==='accepted' && wasteItem.companyId===cId && wasteItem.postId===pId);
+        console.log(wasteItem2);
+
+        const wasteItemLength = wasteItem2.length;
+        console.log(wasteItemLength);
+
+        let quantity=0;
+
+        for (let i = 0; i < wasteItemLength; i++) {
+            quantity += wasteItem2[i].quantity
+        }
+
+        console.log(quantity);
+
+        return quantity;
+    }
+
+    const calculateWeight = (postWeight, calWeight) =>{
+        const trueWeight=postWeight-calWeight;
+        console.log(trueWeight);
+        return trueWeight;
+    }
+
     const filterData = (postsPara, searchKey) => {
         const result = postsPara.filter(
             (notes) =>
@@ -172,7 +196,7 @@ function CompanyDirectPostsView() {
                                 </div>
                                 <main className="grid-b">
                                     {notes.map((note,index)=> {
-                                        if(wasteItem.find(o=>o.postId === note._id) === undefined && note.postType==='direct' && note.buyer===buyerId)
+                                        if(wasteItem.find(o=>o.postId === note._id && note.quantity<=checkWeight(note.companyId,note._id)) === undefined && note.postType==='direct' && note.buyer===buyerId)
                                             return (
                                                 <article>
                                                     <div className="text-b">
@@ -181,7 +205,7 @@ function CompanyDirectPostsView() {
                                                         <p>Post Type: {note.postType}</p>
                                                         <p>Waste Type: {note.wasteType}</p>
                                                         <p>Waste Item: {note.item}</p>
-                                                        <p>Quantity: {note.quantity} Kg</p>
+                                                        <p>Quantity: {calculateWeight(note.quantity, checkWeight(note.companyId,note._id))} Kg</p>
                                                         <p>Telephone No: {note.contact}</p>
                                                         <p>Can Collect Items: {moment(note.avbDate).fromNow()}</p>
                                                         <p>City: {note.address.city}</p>

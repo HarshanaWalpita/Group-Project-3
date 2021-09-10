@@ -155,8 +155,8 @@ function UserProfile() {
                                                 <div className="text-c">
                                                     <div className="companylink-c">
                                                         <Link style={{color: '#fff', textDecoration: 'none'}}
-                                                              to={`/company/profile`}
-                                                        >View Profile <i className="fas fa-angle-double-right"></i></Link>
+                                                              to={`/company/companyratings/${com._id}`}
+                                                        >Ratings <i className="fas fa-angle-double-right"></i></Link>
                                                     </div>
                                                 </div>
                                             </article>
@@ -181,26 +181,6 @@ function UserProfile() {
                                         </main>
                                     ))}
                                 </div>
-                            </div>
-                            <div id="profile_content3-c">
-                                <h1 style={{color:'#164A41'}}>Comments and Reviews</h1>
-                                {sellerComment.map((post, index) => (
-                                    <div className="profile_reviews_c">
-                                        <div className="profile_reviews_body_c">
-                                            <div className="profile_review_body_header_c">
-                                                <div className="profile_div_star-c">
-                                                    <i className="fas fa-star"></i> {post.rating}/5
-                                                </div>
-                                                <h3>by {post.commenterName} at {moment(post.CreatedAt).fromNow()}</h3>
-                                            </div>
-                                            <div className="profile_review_body-c">
-                                                <h4>{post.comment}</h4>
-                                                <br></br>
-                                                <hr></hr>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
                             </div>
                         </div>
             }

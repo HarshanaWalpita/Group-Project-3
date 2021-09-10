@@ -70,15 +70,19 @@ export default function Sidebar() {
                     <h3 className="sidebarTitle">Quick Menu</h3>
                     <ul className="sidebarList">
                        
+                        <Link to="/admin/messages" className="link">
                         <li className="sidebarListItem">
                             <Forum className="sidebarIcon"/>
                             Messages
                         </li>
+                        </Link>
 
+                        <Link to="/admin/newsfeed" className="link">
                         <li className="sidebarListItem">
                             <ListAlt className="sidebarIcon"/>
                             Newsfeed
                         </li>
+                        </Link>
 
                         <Link to="/admin/report" className="link">
                         <li className="sidebarListItem">

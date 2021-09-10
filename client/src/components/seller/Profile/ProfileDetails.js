@@ -31,15 +31,19 @@ export default function ProfileDetails() {
         <div className="posts-b">
         <div className="posts__container-b">
             <h1>Profile Details</h1>
-            <div className="seller-container-b">
-                <ul className="list">
+
+            <div className="seller-container-b" style={{marginTop:'100px'}}>
+                <ol className="list">
+
                         <li ><span>User Name: {sellerName}</span></li>
                    
                         <li ><span>Email: {sellerEmail}</span></li>
                    
-                </ul>
+
+                </ol>
             </div>
-            <div className="all-items-button-b">
+            <div className="seller-delete-profile-button">
+
                 
                     <button onClick={() => {
                         deleteUser(sellerId);

@@ -115,6 +115,7 @@ function VProfile() {
                                     <ol className="list">
                                         <li ><span>Buyer Name: {buyerName}</span></li>
                                         <li ><span>Address: {post.buyerAddress}</span></li>
+                                        <li ><span>Description: {post.buyerDescription}</span></li>
                                         <li ><span>Email: {buyerEmail}</span></li>
 
                                         <li >

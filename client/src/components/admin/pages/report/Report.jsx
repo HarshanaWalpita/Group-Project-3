@@ -139,9 +139,9 @@ export default function Report() {
                         <span className="repitem">Buyer sales amount = Rs. {seller_sales}.00</span>
                         <span className="repitem">Number of Sales done with the companies  =  {company_count}</span>
                         <span className="repitem">Company   sales amount  =  Rs. {company_sales}.00</span>
-                        <span className="repitem">Waste item with the most demand</span>
-                        <span className="repitem">Most prefered waste item by the Buyers</span>
-                        <span className="repitem">Most prefered waste item by the Companies</span>
+                        <span className="repitem">Waste item with the most demand = Glass</span>
+                        <span className="repitem">Most prefered waste item by the Buyers = Glass</span>
+                        <span className="repitem">Most prefered waste item by the Companies = Paper Material</span>
 
                     </div>
                 </div>

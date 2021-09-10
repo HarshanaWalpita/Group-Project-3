@@ -135,10 +135,12 @@ export default function PendingPosts() {
                                                                 to={`/seller/editpost/${note._id}`}>Edit Post <i
                                                                     className="fas fa-angle-double-right"></i></Link>
                                                         </div>
-                                                        <div className="buyerlink-b">
+
+                                                        <div className="delete-button-b">
                                                             <button onClick={() => {
                                                                 deletePost(note._id);
-                                                            }}>Delete Post</button>
+                                                            }}>Delete Post <i className="fas fa-trash-alt"></i></button>
+
                                                         </div>
                 
                                                     </div>

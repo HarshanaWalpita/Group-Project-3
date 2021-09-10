@@ -97,6 +97,7 @@ function BuyerInfo() {
                                                 {note.favouriteWasteTypes.map((wasteTypes)=>(
                                                     <span>
                                                     {wasteTypes}
+                                                    <br></br>
                                                     </span>
                                                 ))}
                                                 </td>
@@ -104,6 +105,7 @@ function BuyerInfo() {
                                                     {note.favouriteWasteItems.map((wasteItems)=>(
                                                         <span>
                                                     {wasteItems}
+                                                    <br></br>
                                                     </span>
                                                     ))}
                                                 </td>
@@ -111,6 +113,7 @@ function BuyerInfo() {
                                                     {note.favouriteAreas.map((wasteAreas)=>(
                                                         <span>
                                                     {wasteAreas}
+                                                    <br></br>
                                                     </span>
                                                     ))}
                                                 </td>
@@ -118,12 +121,13 @@ function BuyerInfo() {
                                                     {note.buyerContact.map((wasteContact)=>(
                                                         <span>
                                                     {wasteContact}
+                                                    <br></br>
                                                     </span>
                                                     ))}
                                                 </td>
                                                 <td data-label="Description">{note.buyerDescription}</td>
                                                 <td data-label="Address">{note.buyerAddress}</td>
-                                                <td data-label="Action">
+                                                <td data-label="Action" id="action">
                                                     <span className="action_btn-c">
                                                   <Link style={{color: '#000', textDecoration: 'none'}}
                                                         to={`/company/buyerdirectpost/${note.buyerId}`}>Contact</Link>

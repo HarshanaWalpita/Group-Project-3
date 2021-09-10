@@ -58,7 +58,7 @@ function NotificationTable() {
                                 <div className="n_wraper-c">
                                     <div className="notify_card-c">
                                         <div className="n_header-c">
-                                            <h2>{index + 1} - {note.buyerName}</h2>
+                                            <h2>{note.buyerName}</h2>
                                             <h3 id="timestamp-c">Notification Created : {moment(note.notificationCreatedAt).fromNow()}</h3>
                                         </div>
                                         <div className="massage-c">

@@ -119,7 +119,7 @@ exports.sellerUpdatePost = async (req, res) => {
     const sellerDistrict = req.body.district;
     const address = req.body.address;
     const location = req.body.location;
-    const contact = Number(req.body.contact);
+    const contact = req.body.contact;
     const thumbnail = req.body.thumbnail;
     const wasteItemList = req.body.wasteItemList;
 

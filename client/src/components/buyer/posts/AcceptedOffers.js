@@ -86,6 +86,7 @@ function AcceptedOffers() {
                                                         <h3>Post ID: {index + 1}</h3>
                                                         <p>Seller Name: {offer.sellerName}</p>
                                                         <p>Unit Price (Rs): {offer.value}</p>
+                                                        <p>Secret Key: {offer.verificationCode}</p>
                                                         <p>Expiry Date: {moment(offer.expiryDate).fromNow()}</p>
                                                         <p>Collecting Date: {moment(offer.collectingDate).fromNow()}</p>
                                                         <p>Offer Gives: {moment(offer.offerCreatedAt).fromNow()}</p>

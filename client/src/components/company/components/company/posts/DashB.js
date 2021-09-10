@@ -53,6 +53,42 @@ function DashB() {
     const wasteItem = offers?.filter(wasteItem => wasteItem.status==='accepted' && wasteItem.companyId===companyId);
     console.log(wasteItem);
 
+    const checkWeight = (pId) => {
+        const wasteItem2 = offers?.filter(wasteItem => wasteItem.status==='accepted' && wasteItem.companyId===companyId && wasteItem.postId===pId);
+        console.log(wasteItem2);
+
+        const wasteItemLength = wasteItem2.length;
+        console.log(wasteItemLength);
+
+        let quantity=0;
+
+        for (let i = 0; i < wasteItemLength; i++) {
+            quantity += wasteItem2[i].quantity
+        }
+
+        console.log(quantity);
+
+        return quantity;
+    }
+
+    const checkPrice = (pId) => {
+        const wasteItem2 = offers?.filter(wasteItem => wasteItem.status==='accepted' && wasteItem.companyId===companyId && wasteItem.postId===pId);
+        console.log(wasteItem2);
+
+        const wasteItemLength = wasteItem2.length;
+        console.log(wasteItemLength);
+
+        let price=0;
+
+        for (let i = 0; i < wasteItemLength; i++) {
+            price += wasteItem2[i].value
+        }
+
+        console.log(price);
+
+        return price;
+    }
+
     return(
         <>
             {
@@ -91,18 +127,10 @@ function DashB() {
                                                 <tr>
                                                     <td data-label="Offer ID">{index + 1}</td>
                                                     <td data-label="Date">{moment(note.avbDate).fromNow()}</td>
-                                                    <td data-label="Amount (Kg)">
-                                                    {wasteItem.map((q)=>(
-                                                        <span>{q.quantity}</span>
-                                                    ))}
-                                                    </td>
+                                                    <td data-label="Amount (Kg)">{checkWeight(note._id)}</td>
                                                     <td data-label="Waste Type">{note.wasteType}</td>
                                                     <td data-label="Waste Item">{note.item}</td>
-                                                    <td data-label="Price (Rs)">
-                                                    {wasteItem.map((p)=>(
-                                                        <span>{p.value}</span>
-                                                    ))}
-                                                    </td>
+                                                    <td data-label="Price (Rs)">{checkPrice(note._id)}</td>
                                                 </tr>
                                                 );
                                         })}

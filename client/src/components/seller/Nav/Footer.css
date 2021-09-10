@@ -146,6 +146,34 @@
     margin-bottom: 16px;
 }
 
+.footer-button-b input{
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.footer-button-b input{
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid var(--primary);
+}
+
+.footer-button-b input{
+    background-color: transparent;
+    color: #fff;
+    padding: 8px 20px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease-out;
+}
+
+.footer-button-b input:hover {
+    background: #fff;
+    color: #000;
+    transition: 250ms;
+}
+
 @media screen and (max-width: 820px) {
     .footer-links {
         padding-top: 2rem;

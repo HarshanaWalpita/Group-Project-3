@@ -10,35 +10,37 @@ function Cards() {
                 <div className='cards__wrapper-b'>
                     <ul className='cards__items-b'>
                         <CardItem
+                            src='../images/add_post.png'
+                            text='Add Posts'
+                            path='/company/companypost'
+                        />
+                        <CardItem
                             src="../images/contact.jpg"
                             text='Contact Buyers'
                             path='/company/buyersinfo'
                         />
-                        <CardItem
-                            src='../images/help.jpg'
-                            text='Need Help?'
-                            path='/company/helpdesk'
-                        />
                     </ul>
                     <ul className='cards__items-b'>
                         <CardItem
-                            src='../images/add_post.png'
-                            text='Add Posts'
+                            src='../images/accepted_post.png'
+                            text='Accepted Posts'
                             label='Mystery'
-                            path='/company/companypost'
+                            path='/company/acceptedp'
                         />
                         <CardItem
                             src='../images/ongoing_post.png'
-                            text='View Ongoing Posts'
+                            text='Ongoing Posts'
                             label='Adventure'
                             path='/company/ongoingp'
                         />
                         <CardItem
                             src='../images/offers.jpg'
-                            text='View Offers'
+                            text='Direct Offers'
                             label='Adrenaline'
                             path='/company/directposts'
                         />
+                       
+                        
                     </ul>
                 </div>
             </div>

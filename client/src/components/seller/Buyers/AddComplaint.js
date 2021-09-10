@@ -109,17 +109,26 @@ export default function SellerComplaints() {
     return(
     <div className="forms-b">
         <div className="forms__container-b" >
+
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <div className="container-b">
                 <div className="title-b">Add Complaints</div>
                 <div className="content-b">
-                    <form action="#">
+                    <form className="buyer-form-b" action="#">
                             <div className="user-details-b">
                             <div className="input-box-b">
                                     <span className="details-b">Buyer : {buyer.username}</span>
                                     
                             </div>
                             <div className="input-box-b">
-                                <span className="details-b">Complainant</span>
+
+                                <span className="details-b">Complaint</span>
                                     <input type="text"
                                         name="complaintDetails" id="complaintDetails"
                                        
@@ -141,6 +150,14 @@ export default function SellerComplaints() {
                     </form>
                 </div>
             </div>
+
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
         </div>
     </div>
 

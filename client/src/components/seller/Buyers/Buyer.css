@@ -75,6 +75,25 @@
   margin: auto;
 }
 
+.seller-view-offer-button{
+  background: #205072;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.seller-view-offer-button:hover{
+  opacity: 0.8;
+  transition: .3s;
+}
+
 /* Responsive columns */
 @media screen and (max-width: 600px) {
   .buyer-column {

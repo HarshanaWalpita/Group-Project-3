@@ -36,6 +36,7 @@ export default function Userlist() {
             console.log(err)
         })
     }
+
         const columns = [
             { field: 'username', headerName: 'Username', width: 250 },
             { field: 'email', headerName: 'E-mail', width: 300 },

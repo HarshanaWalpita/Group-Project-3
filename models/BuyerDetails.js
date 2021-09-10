@@ -6,7 +6,7 @@ const BuyerDetailsSchema = new mongoose.Schema({
     buyerName: String,
     buyerDescription: String,
     buyerAddress: String,
-    buyerContact: [Number],
+    buyerContact: [String],
     favouriteAreas: [String],
     favouriteWasteTypes: [String],
     favouriteWasteItems: [String],

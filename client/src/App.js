@@ -72,12 +72,14 @@ import CompanyPreviousP from './components/company/pages/PreviousP';
 import CompanyAcceptedP from './components/company/pages/AcceptedP';
 import CompanyBuyersInfo from './components/company/pages/BuyersInfo';
 import CompanyBuyersContact from './components/company/pages/BuyersContact';
+import CompanyViewOffers from './components/company/pages/ViewOffers';
 import CompanyGetCompanyDetails from "./components/company/components/company/home/GetCompanyDetails";
 import CompanyBuyerDirectPost from "./components/company/pages/BuyerDirectPost";
 import CompanyEditPost from "./components/company/pages/EditPost";
 import CompanyViewAcceptedOffer from "./components/company/pages/ViewAcceptedOffer";
 import CompanyAddComplaint from "./components/company/pages/AddComplaint";
 import CompanyViewRating from "./components/company/pages/ViewRating";
+import CompanyCompanyRatings from "./components/company/pages/CompanyRatings";
 
 import AdminHome from "./components/admin/components/home/Home";
 import AdminUserlist from "./components/admin/pages/userlist/Userlist";
@@ -91,7 +93,9 @@ import AdminUserReport from './components/admin/pages/userreport/UserReport';
 import AdminSalesReport from './components/admin/pages/report/SalesReport';
 import AdminStatistics from './components/admin/pages/statistics/Statistics';
 import AdminReviewComplaints from './components/admin/pages/reviewComplaints/Reviewcomplaints';
-
+import AdminMessages from './components/admin/pages/messages/Messages';
+import AdminCompanyReport from './components/admin/pages/userreport/Companyreport';
+import AdminNewsfeed from './components/admin/pages/newsfeed/Newsfeed';
 
 function App() {
     return (
@@ -177,11 +181,14 @@ function App() {
                     <Route path='/admin/companies' component={AdminCompany} />
                     <Route path='/admin/user/:_id' component={AdminUser} />
                     <Route path='/admin/userreport/:_id' component={AdminUserReport} />
+                    <Route path='/admin/companyreport/:_id' component={AdminCompanyReport} />
                     <Route path='/admin/newuser' component={AdminNewuser} />
                     <Route path='/admin/report' component={AdminReport} />
                     <Route path='/admin/statistics' component={AdminStatistics} />
                     <Route path='/admin/salesreport' component={AdminSalesReport} />
                     <Route path='/admin/reviewcomplaints' component={AdminReviewComplaints} />
+                    <Route path='/admin/messages' component={AdminMessages} />
+                    <Route path='/admin/newsfeed' component={AdminNewsfeed} />
 
 
 					<Route path='/company' exact component={CompanyHome} />
@@ -189,7 +196,7 @@ function App() {
                     <Route path='/company/dashboard' component={CompanyDashboard} />
                     <Route path='/company/helpdesk' component={CompanyHelpdesk} />
                     <Route path='/company/companypost' component={CompanyPost} />
-                    <Route path='/company/offersforposts/:postId' component={CompanyOffersForPosts} />
+                    <Route path='/company/offersforposts/:postId/:postQuantity' component={CompanyOffersForPosts} />
                     <Route path='/company/editprofile/:postId' component={CompanyEditProfile} />
                     <Route path='/company/DirectPosts' component={CompanyDirectPosts} />
                     <Route path='/company/notification' component={CompanyNotification} />
@@ -198,12 +205,14 @@ function App() {
                     <Route path='/company/acceptedp' component={CompanyAcceptedP} />
                     <Route path='/company/buyersinfo' component={CompanyBuyersInfo} />
                     <Route path='/company/buyerscontact' component={CompanyBuyersContact} />
+                    <Route path='/company/viewoffers' component={CompanyViewOffers} />
                     <Route path='/company/getcompanydetails' component={CompanyGetCompanyDetails} />
                     <Route path='/company/buyerdirectpost/:buyerId' component={CompanyBuyerDirectPost} />
                     <Route path='/company/companyeditpost/:postId' component={CompanyEditPost} />
                     <Route path='/company/offersforacceptedposts/:postId' component={CompanyViewAcceptedOffer} />
                     <Route path='/company/addcomplaints/:buyerId' component={CompanyAddComplaint} />
                     <Route path='/company/viewbuyerratings/:buyerId' component={CompanyViewRating} />
+                    <Route path='/company/companyratings/:companyId' component={CompanyCompanyRatings} />
                 </Switch>
             </Router>
         </>

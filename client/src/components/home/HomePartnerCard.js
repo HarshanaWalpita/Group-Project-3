@@ -23,7 +23,7 @@ function HomePartnerCards() {
                         />
                         <HomePartnerCardItems
                             src='images/homecompany.jpg'
-                            text='Recycle Company : Large organizations who are looking for buying large quantity of a waste item'
+                            text='Recycle Company : Large organizations who are looking for buying large quantity of waste items'
                             label='Adrenaline'
                             path='/pendingoffers'
                         />

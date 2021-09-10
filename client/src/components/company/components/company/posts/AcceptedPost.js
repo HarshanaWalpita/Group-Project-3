@@ -72,7 +72,7 @@ function AcceptedPost() {
                         </div> :
                         <div className="posts-c">
                             <div className="posts__container-c">
-                                <div className="title-c"><h1>Accepted Post</h1></div>
+                                <div className="title-c"><h1>Accepted Posts</h1></div>
                                 <main className="grid-c">
                                     {notes.map((note,index)=> {
                                         if(wasteItem.find(o=>o.postId === note._id) !== undefined)
@@ -83,8 +83,10 @@ function AcceptedPost() {
                                                         <p>Post Type: {note.postType}</p>
                                                         <p>Waste Type: {note.wasteType}</p>
                                                         <p>Waste Item: {note.item}</p>
-                                                        <p>Quantity: {note.quantity}</p>
+
+                                                        <p>Quantity: {note.quantity} Kg</p>
                                                         <p>Available Date: {moment(note.avbDate).fromNow()}</p>
+
                                                         <div className="companylink-c">
                                                             <Link style={{color: '#fff', textDecoration: 'none'}}
                                                                   to={`/company/offersforacceptedposts/${note._id}`}>View Offer<i className="fas fa-angle-double-right"></i></Link>

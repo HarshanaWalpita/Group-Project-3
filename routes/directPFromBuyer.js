@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const getdirectPFromBuyer = require("../controllers/directPFromBuyer");
+const getDirectBuyerOffers = require("../controllers/directPFromBuyer");
 
-router.get('/getdirectPFromBuyer', getdirectPFromBuyer);
+router.get('/getDirectBuyerOffers', getDirectBuyerOffers);
 
 module.exports = router;
+

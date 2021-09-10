@@ -1,9 +1,79 @@
-import React from 'react';
+import React, {useEffect, useState} from "react";
 import './Footer.css';
-import { Button } from './Button';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import {Slide, toast, ToastContainer} from "react-toastify";
 
 function Footer() {
+
+    const userName=(localStorage.getItem("userName"));
+    const userEmail=(localStorage.getItem("userEmail"));
+    console.log(userName);
+    console.log(userEmail);
+
+    const apiUrl = '/getHelp';
+    const initialValues = {
+        message: '',
+        userName: '',
+        userEmail: ''
+    };
+    const [formValues, setFormValues] = useState(initialValues);
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const submitForm = () => {
+        const data = {
+            message:formValues.message,
+            userName:userName,
+            userEmail:userEmail
+        };
+        axios.post(apiUrl, data)
+            .then((result) => {
+                clear();
+                toastNotification();
+            });
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues({ ...formValues, [name]: value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setFormErrors(validate(formValues));
+        setIsSubmitting(true);
+    };
+
+    const validate = (values) => {
+        let errors = {};
+
+        if (!values.message) {
+            errors.message = "Cannot be blank";
+        }
+        return errors;
+    };
+
+    useEffect(() => {
+        if (Object.keys(formErrors).length === 0 && isSubmitting) {
+            submitForm();
+        }
+    }, [formErrors]);
+
+    const clear = () => {
+        setFormValues({
+            message: '',
+            userName: '',
+            userEmail: ''
+        });
+    };
+
+    const toastNotification = () => {
+        toast.info("You're added help successfully, you will be replied soon!", {
+            transition: Slide
+        })
+    };
+
     return (
         <div className='footer-container'>
             <section className='footer-subscription'>
@@ -14,24 +84,30 @@ function Footer() {
                     Leave us a message.
                 </p>
                 <div className='input-areas'>
-                    <form>
+                    <form onSubmit={handleSubmit} noValidate>
                         <input
                             className='footer-input'
-                            name='email'
-                            type='email'
+                            name='message'
+                            id='message'
+                            type='text'
                             placeholder='Your Message'
+                            value={formValues.message}
+                            onChange={handleChange}
                         />
-                        <Button buttonStyle='btn-b-outline'>Send</Button>
+                        <div className="footer-button-b">
+                            <input type="submit" value="Send"></input>
+                            <ToastContainer position="top-right" toastStyle={{ backgroundColor: "green" }} autoClose={3000} />
+                        </div>
                     </form>
                 </div>
             </section>
-            <div class='footer-links'>
+            <div className='footer-links'>
                 <div className='footer-link-wrapper'>
-                    <div class='footer-link-items'>
+                    <div className='footer-link-items'>
                         <h2>About Us</h2>
                         <h4>Largest Waste Buying and Selling Platform in Sri Lanka</h4>
                     </div>
-                    <div class='footer-link-items'>
+                    <div className='footer-link-items'>
                         <h2>Contact Us</h2>
                         <h4>zerowaste@gmail.com</h4>
                         <h4>0112690247</h4>
@@ -39,7 +115,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className='footer-link-wrapper'>
-                    <div class='footer-link-items'>
+                    <div className='footer-link-items'>
                         <h2>Social Media</h2>
                         <Link to='/'>Instagram</Link>
                         <Link to='/'>Facebook</Link>
@@ -48,23 +124,23 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <section class='social-media'>
-                <div class='social-media-wrap'>
-                    <div class='footer-logo'>
+            <section className='social-media'>
+                <div className='social-media-wrap'>
+                    <div className='footer-logo'>
                         <Link to='/' className='social-logo'>
                             ZERO-WASTE
-                            <i class='fab fa-firstdraft' />
+                            <i className='fab fa-firstdraft' />
                         </Link>
                     </div>
-                    <small class='website-rights'>ZERO-WASTE © 2021</small>
-                    <div class='social-icons'>
+                    <small className='website-rights'>ZERO-WASTE © 2021</small>
+                    <div className='social-icons'>
                         <Link
                             class='social-icon-link facebook'
                             to='/'
                             target='_blank'
                             aria-label='Facebook'
                         >
-                            <i class='fab fa-facebook-f' />
+                            <i className='fab fa-facebook-f' />
                         </Link>
                         <Link
                             class='social-icon-link instagram'
@@ -72,7 +148,7 @@ function Footer() {
                             target='_blank'
                             aria-label='Instagram'
                         >
-                            <i class='fab fa-instagram' />
+                            <i className='fab fa-instagram' />
                         </Link>
                         <Link
                             class='social-icon-link youtube'
@@ -80,7 +156,7 @@ function Footer() {
                             target='_blank'
                             aria-label='Youtube'
                         >
-                            <i class='fab fa-youtube' />
+                            <i className='fab fa-youtube' />
                         </Link>
                         <Link
                             class='social-icon-link twitter'
@@ -88,7 +164,7 @@ function Footer() {
                             target='_blank'
                             aria-label='Twitter'
                         >
-                            <i class='fab fa-twitter' />
+                            <i className='fab fa-twitter' />
                         </Link>
                         <Link
                             class='social-icon-link twitter'
@@ -96,7 +172,7 @@ function Footer() {
                             target='_blank'
                             aria-label='LinkedIn'
                         >
-                            <i class='fab fa-linkedin' />
+                            <i className='fab fa-linkedin' />
                         </Link>
                     </div>
                 </div>

@@ -53,7 +53,7 @@ function PreviousPost() {
     }
     console.log(offers);
 
-    const wasteItem = offers?.filter(wasteItem =>wasteItem.status==='accepted' && wasteItem.companyId===companyId);
+    const wasteItem = offers?.filter(wasteItem =>(wasteItem.status==='accepted' || wasteItem.status==='pending') && wasteItem.companyId===companyId);
     console.log(wasteItem);
 
     const toastNotification = () => {
@@ -87,7 +87,7 @@ function PreviousPost() {
                         </div> :
                         <div className="posts-c">
                             <div className="posts__container-c">
-                                <div className="title-c"><h1>All Post</h1></div>
+                                <div className="title-c"><h1>New Posts</h1></div>
                                 <main className="grid-c">
                                     {notes.map((note,index)=> {
                                         if(wasteItem.find(o=>o.postId === note._id) === undefined && note.companyId===companyId)
@@ -98,8 +98,10 @@ function PreviousPost() {
                                                     <p>Post Type: {note.postType}</p>
                                                     <p>Waste Type: {note.wasteType}</p>
                                                     <p>Waste Item: {note.item}</p>
-                                                    <p>Quantity: {note.quantity}</p>
+
+                                                    <p>Quantity: {note.quantity} Kg</p>
                                                     <p>Available Date: {moment(note.avbDate).fromNow()}</p>
+
                                                     <div className="companylink-c">
                                                         <Link style={{color: '#fff', textDecoration: 'none'}}
                                                               to={`/company/companyeditpost/${note._id}`}>Edit Post <i className="fas fa-edit"></i></Link>

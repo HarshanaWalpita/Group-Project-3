@@ -1,10 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
-const BuyerNotifyCompany = require("../models/BuyerNotifyCompany");
+const BuyerNotifyCompanys = require("../models/BuyerNotifyCompany")
 
-exports.getdirectPFromBuyer= async (req,res)=>{
-    BuyerNotifyCompany.find().exec((err,posts)=>{
+exports.getDirectBuyerOffers= async (req,res)=>{
+    BuyerNotifyCompanys.find().exec((err,posts)=>{
         if(err){
             return res.status(400).json({
                 error:err

@@ -20,6 +20,8 @@
     background-color: #f1f1f1;
     padding-bottom: 20px;
     margin-bottom: 20px;
+    border-radius: 5px;
+    opacity: .8;
 }
 .seller-post-card-item-row:after{
     content: "";
@@ -99,6 +101,53 @@
     color: white;
   }
 
+
+.seller-post-card h2{
+    color:#164A41;
+    text-align: center;
+    font-size: 18px;
+}
+
+.seller-post-card-item{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.seller-view-offer-button{
+    background: #205072;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.seller-view-offer-button:hover{
+    opacity: 0.8;
+    transition: .3s;
+}
+
+.seller-post-offers{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+
+.seller-post-offers h1{
+    color: #164A41;
+    text-align: center;
+}
+
+.seller-post-offers h2{
+    color: #164A41;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
 @media screen and (max-width: 600px) {
     .seller-post-card-item {

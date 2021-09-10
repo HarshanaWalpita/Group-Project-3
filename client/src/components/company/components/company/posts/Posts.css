@@ -212,8 +212,10 @@
 }
 
 .delete-button-c button{
-    background-color: #309103;
+    background-color: #e90707;
     font-size: 16px;
+    
+    justify-content: center;
 }
 .delete-button-c button:hover{
     opacity: 0.8;

@@ -32,6 +32,17 @@ ABSrouter.get('/getofferedsellers' , (req,res)=>{
     })
 })
 
+ABSrouter.get('/getallsellerposts' , (req,res)=>{
+    ABSmodel.find( function(docs,err){
+        if(!err){
+            res.send(docs)
+        }
+        else{
+            res.send(err)
+        }
+    })
+})
+
 ABSrouter.post('/getuseroffers' , (req,res)=>{
     ABSmodel.find({$or:[{buyerId:req.body._id}, {sellerId:req.body._id}]} , (docs,err)=>{
         if(!err){

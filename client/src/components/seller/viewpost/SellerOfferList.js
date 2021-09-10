@@ -5,6 +5,7 @@ import axios from 'axios';
 import '../../buyer/posts/LoadingRing.css';
 import moment from 'moment';
 import e from 'cors';
+import './PendingPosts.css';
 
 
 export default function SellerOfferList() {
@@ -23,10 +24,10 @@ export default function SellerOfferList() {
    
     
    // const [buyerOffers, getBuyerOffers] = useState([]);
-    const [buyerOffersList, getBuyerOffersList] = useState([]);
+    const [buyerOffers, getBuyerOffersList] = useState([]);
 
-    const WAIT_TIME = 1000;
-
+    const WAIT_TIME = 5000;
+/*
     useEffect(() => {
         const id = setInterval(() => {
             axios.get(`/sellerViewOffers/${sellerId}`)
@@ -37,20 +38,25 @@ export default function SellerOfferList() {
                     console.log(err);
             })
        },WAIT_TIME)
-    }, [buyerOffersList]);
+    }, [buyerOffers]);
+    */
+    
+    useEffect(() => {
+        getAllBuyerOffers()
+    },[])
     const date = new Date();
     date.setDate(date.getDate());
     
-    var buyerOffers = buyerOffersList.filter(o => o.expieryDate >= date);
+    //var buyerOffers = buyerOffersList.filter(o => o.expieryDate >= date);
     console.log(buyerOffers);
-    console.log(buyerOffersList);
+   // console.log(buyerOffersList);
     const getAllBuyerOffers = async () => {
             setIsLoading(true)
             try {
                 const response = await axios.get(`/sellerViewOffers/${sellerId}`);
                 console.log(response);
                 const allOffers = response.data.existingOffers;
-                if (allOffers.length === 0) {
+                if (allOffers && allOffers.length === 0) {
                     setIsEmpty(true)
                 } else {
                     getBuyerOffersList(allOffers);
@@ -76,6 +82,7 @@ export default function SellerOfferList() {
             .then((result) => {
                 console.log("offer Rejected");
                 alert("Offer Rejected");
+                getAllBuyerOffers();
             });
     //   window.location.reload();
     }
@@ -94,6 +101,7 @@ export default function SellerOfferList() {
                 .then((result) => {
                     console.log("ACCPTED")
                     alert("Offer Accepted");
+                    getAllBuyerOffers();
                     //     clear();
                     //  toastNotification();
                     //  history.push(`/seller/home`);
@@ -120,6 +128,7 @@ export default function SellerOfferList() {
                 .then((result) => {
                     console.log("offer accepted")
                     alert("Offer Accepted");
+                    getAllBuyerOffers();
                 });
             //   window.location.reload();
         }
@@ -146,7 +155,8 @@ export default function SellerOfferList() {
                         <div className="seller-post-list-background">
                             <div className="seller-post-list">
                             <main className="grid-b">
-                                {buyerOffers.map((offer) => {
+                                        {buyerOffers.map((offer, index) => {
+                                    
                                     if (offer.wasteItemsListId === "completePost" && offer.status === "pending")
                                         return (
                                             <article>
@@ -164,13 +174,13 @@ export default function SellerOfferList() {
                                                             to={`/seller/viewpost/${offer.postId._id}`}>View Post <i
                                                                 className="fas fa-angle-double-right"></i></Link>
                                                     </div>
-                                                    <div className="buyerlink-b">
+                                                    <div className="delete-button-b">
                                                         <button className="accept-btn" onClick={() => {
 
                                                             sellerAcceptCompletePostOffer(offer._id, offer.postId._id, offer.expiryDate);
                                                         }}>Accept</button>
                                                     </div>
-                                                    <div className="buyerlink-b">
+                                                    <div className="delete-button-b">
                                                         <button className="accept-btn" onClick={(e) => {
                                                             sellerDeclineOffer(offer._id,e);
                                                         }}>Decline</button>
@@ -196,12 +206,12 @@ export default function SellerOfferList() {
                                                             to={`/seller/viewpost/${offer.postId._id}`}>View Post <i
                                                                 className="fas fa-angle-double-right"></i></Link>
                                                     </div>
-                                                    <div className="buyerlink-b">
+                                                    <div className="delete-button-b">
                                                         <button className="accept-btn" onClick={() => {
                                                            sellerAcceptWasteItemOffer(item._id, offer._id, offer.expieryDate) 
                                                         }}>Accept</button>
                                                     </div>
-                                                    <div className="buyerlink-b">
+                                                    <div className="delete-button-b">
                                                         <button className="accept-btn" onClick={(e) => {
                                                             sellerDeclineOffer(offer._id,e);
                                                         }}>Decline</button>
