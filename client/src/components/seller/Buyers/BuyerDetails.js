@@ -82,17 +82,27 @@ export default function BuyerDetails() {
                                 <div className="seller-buyer-details">
                                     <div className="seller-col-25">
                                         <h1>{buyer.buyerName}</h1>
-                                        <div className="ratings-star">
-                                            <span className="fa fa-star checked"></span>
-                                            <span className="fa fa-star checked"></span>
-                                            <span className="fa fa-star checked"></span>
-                                            <span className="fa fa-star checked"></span>
-                                            <span className="fa fa-star checked"></span>
-                                        </div>
-                        
-        
-                                        <img src={ProPIc}></img>
+                                        
                                         <p>{buyer.buyerDescription}</p>
+                                        <div className="rt-container">
+                                            <div className="col-rt-12">
+                                                <div className="gallery">
+                                                    
+                                                {buyer && buyer.buyerImages && buyer.buyerImages.map((image, idx) => {
+                                                    return (
+                                                        <img className="thumb" src={image}></img>
+                                                    );
+                                                })}
+                                                    
+                                                    
+                                                </div>
+
+                                            </div>
+                                           
+                                        
+                                        
+
+                                        </div>
                                     </div>
                                     <div className="seller-col-75">
                                         <div className="s-b-detail">

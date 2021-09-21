@@ -101,11 +101,7 @@ function EditProfileForms() {
                         <form className="buyer-form-b" action="#">
                             <div className="user-details-b">
                                 <div className="input-box-b">
-                                    <span className="details-b">Name</span>
-                                   
-                                </div>
-                                <div className="input-box-b">
-                                    <span className="details-b">Address</span>
+                                    <span className="details-b">Address (ලිපිනය)</span>
                                     <input type="text" placeholder="Enter Address" value={buyerAddress} onChange={(e) => {
                                        // setAddress(e.target.value);
                                         setAddress(e.target.value);
@@ -113,13 +109,13 @@ function EditProfileForms() {
                                     }}></input>
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Description</span>
+                                    <span className="details-b">Description (විස්තරය)</span>
                                     <input type="text" placeholder="Enter Address" value={buyerDescription} onChange={(e) => {
                                         setDescription(e.target.value);
                                     }}></input>
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Telephone</span>
+                                    <span className="details-b">Telephone (දුරකථන අංක)</span>
                                     {buyerContact && buyerContact?.map((contact, idx) => {
                                         return (
                                             <div>
@@ -131,7 +127,7 @@ function EditProfileForms() {
                                     <input type="text" placeholder="Enter Telephone" value={tempCt} onChange={(e) => {
                                         setTempCt(e.target.value);
                                     }}></input>
-                                    <button vlaue="add" onClick={(e) => {
+                                    <button onClick={(e) => {
                                         e.preventDefault()
                                         if (tempCt.length !== 10) {
                                             alert("Invalid Contact")
@@ -144,7 +140,7 @@ function EditProfileForms() {
                                 </div>
                             
                                 <div className="input-box-b">
-                                    <span className="details-b">Favourite Waste Types:</span>
+                                    <span className="details-b">Favourite Waste Types (වර්ග)</span>
                                     {favouriteWasteTypes && favouriteWasteTypes?.map((type, idx) => {
                                         return (
                                             <div>
@@ -168,7 +164,7 @@ function EditProfileForms() {
                                     }}>Add</button>
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Favourite Waste Items:</span>
+                                    <span className="details-b">Favourite Waste Items (අයිතම)</span>
                                     {favouriteWasteItems && favouriteWasteItems?.map((item, idx) => {
                                         return (
                                             <div>
@@ -192,7 +188,7 @@ function EditProfileForms() {
                                     }}>Add</button>
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Favourite Areas:</span>
+                                    <span className="details-b">Favourite Areas (ප්‍රදේශ)</span>
                                     {favouriteAreas && favouriteAreas?.map((area, idx) => {
                                         return (
                                             <div>
@@ -219,7 +215,7 @@ function EditProfileForms() {
                             </div>
                             <div className="user-details-b">
                             <div className="input-box-b">
-                                    <span className="details-b">Images:</span>
+                                    <span className="details-b">Images (රූප)</span>
                                     {buyer && buyerImages && buyerImages?.map((img, idx) => {
                                         return (
                                             <div>

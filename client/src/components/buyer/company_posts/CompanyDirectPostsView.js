@@ -120,7 +120,7 @@ function CompanyDirectPostsView() {
                                 <div className="search-box-shadow-b">
                                     <div className="search-bar-box-b">
                                         <div className="post-search-box-b">
-                                            <input type="text" placeholder="What are you looking for?" onChange={handleSearchArea}></input>
+                                            <input type="text" placeholder="What are you looking for? (සොයන්න)" onChange={handleSearchArea}></input>
                                             <i className="fas fa-search"></i>
                                         </div>
                                         <div className="search-button-b">
@@ -129,29 +129,29 @@ function CompanyDirectPostsView() {
                                     </div>
                                     <div className="search-bar-b">
                                         <div className="box-b">
-                                            <h3>Waste Type</h3>
+                                            <h3>Waste Type (වර්ගය)</h3>
                                             <select onChange={handleSearchArea}>
                                                 <option disabled selected >All</option>
-                                                <option value="polythene">Polythene</option>
-                                                <option value="plastic">Plastic</option>
-                                                <option value="organic waste">Organic Waste</option>
-                                                <option value="paper">Paper</option>
-                                                <option value="metal">Metal</option>
+                                                <option value="polythene">Polythene (පොලිතීන්)</option>
+                                                <option value="plastic">Plastic (ප්ලාස්ටික්)</option>
+                                                <option value="organic waste">Organic Waste (කාබනික)</option>
+                                                <option value="paper">Paper (කඩදාසි)</option>
+                                                <option value="metal">Metal (ලෝහ)</option>
                                             </select>
                                         </div>
                                         <div className="box-b">
-                                            <h3>Waste Item</h3>
+                                            <h3>Waste Item (අයිතමය)</h3>
                                             <select onChange={handleSearchArea}>
                                                 <option disabled selected >All</option>
-                                                <option value="bag" >Bag</option>
-                                                <option value="bucket" >Bucket</option>
-                                                <option value="plate" >Plate</option>
-                                                <option value="paper" >Paper</option>
-                                                <option value="chair" >Chair</option>
+                                                <option value="bag" >Bag (බෑගය)</option>
+                                                <option value="bucket" >Bucket (බාල්දිය)</option>
+                                                <option value="plate" >Plate (තහඩුව)</option>
+                                                <option value="paper" >News Paper (පුවත්පත)</option>
+                                                <option value="chair" >Chair (පුටුව)</option>
                                             </select>
                                         </div>
                                         <div className="box-b">
-                                            <h3>Quantity</h3>
+                                            <h3>Quantity (ප්රමාණය)</h3>
                                             <select onChange={handleSearchArea}>
                                                 <option disabled selected >All</option>
                                                 <option value="100">100 kg</option>
@@ -162,34 +162,34 @@ function CompanyDirectPostsView() {
                                             </select>
                                         </div>
                                         <div className="box-b">
-                                            <h3>Location</h3>
+                                            <h3>Location (ස්ථානය)</h3>
                                             <select onChange={handleSearchArea}>
                                                 <option disabled selected >All</option>
-                                                <option value="ampara">Ampara</option>
-                                                <option value="anuradhapura">Anuradhapura</option>
-                                                <option value="badulla">Badulla</option>
-                                                <option value="batticaloa">Batticaloa</option>
-                                                <option value="colombo">Colombo</option>
-                                                <option value="galle">Galle</option>
-                                                <option value="gampaha">Gampaha</option>
-                                                <option value="hambantota">Hambantota</option>
-                                                <option value="jaffna">Jaffna</option>
-                                                <option value="kalutara">Kalutara</option>
-                                                <option value="kandy">Kandy</option>
-                                                <option value="kegalle">Kegalle</option>
-                                                <option value="kilinochchi">Kilinochchi</option>
-                                                <option value="kurunegala">Kurunegala</option>
-                                                <option value="mannar">Mannar</option>
-                                                <option value="matale">Matale</option>
-                                                <option value="matara">Matara</option>
-                                                <option value="monaragala">Monaragala</option>
-                                                <option value="mullaitivu">Mullaitivu</option>
-                                                <option value="nuwaraeliya">Nuwara Eliya</option>
-                                                <option value="polonnaruwa">Polonnaruwa</option>
-                                                <option value="puttalam">Puttalam</option>
-                                                <option value="ratnapura">Ratnapura</option>
-                                                <option value="trincomalee">Trincomalee</option>
-                                                <option value="vavuniya">Vavuniya</option>
+                                                <option value="ampara">Ampara (අම්පාර)</option>
+                                                <option value="anuradhapura">Anuradhapura (අනුරාධපුර)</option>
+                                                <option value="badulla">Badulla (බදුල්ල)</option>
+                                                <option value="batticaloa">Batticaloa (මඩකලපුව)</option>
+                                                <option value="colombo">Colombo (කොළඹ)</option>
+                                                <option value="galle">Galle (ගාල්ල)</option>
+                                                <option value="gampaha">Gampaha (ගම්පහ)</option>
+                                                <option value="hambantota">Hambantota (හම්බන්තොට)</option>
+                                                <option value="jaffna">Jaffna (යාපනය)</option>
+                                                <option value="kalutara">Kalutara (කළුතර)</option>
+                                                <option value="kandy">Kandy (මහනුවර)</option>
+                                                <option value="kegalle">Kegalle (කෑගල්ල)</option>
+                                                <option value="kilinochchi">Kilinochchi (කිලිනොච්චි)</option>
+                                                <option value="kurunegala">Kurunegala (කුරුණෑගල)</option>
+                                                <option value="mannar">Mannar (මන්නාරම)</option>
+                                                <option value="matale">Matale (මාතලේ)</option>
+                                                <option value="matara">Matara (මාතර)</option>
+                                                <option value="monaragala">Monaragala (මොනරාගල)</option>
+                                                <option value="mullaitivu">Mullaitivu (මුලතිව්)</option>
+                                                <option value="nuwaraeliya">Nuwara Eliya (නුවරඑලිය)</option>
+                                                <option value="polonnaruwa">Polonnaruwa (පොළොන්නරුව)</option>
+                                                <option value="puttalam">Puttalam (පුත්තලම)</option>
+                                                <option value="ratnapura">Ratnapura (රත්නපුර)</option>
+                                                <option value="trincomalee">Trincomalee (ත්රිකුණාමලය)</option>
+                                                <option value="vavuniya">Vavuniya (වවුනියාව)</option>
                                             </select>
                                         </div>
                                     </div>

@@ -73,7 +73,7 @@ export default function Messages() {
 
     const columns = [
         { field: 'userName', headerName: 'User', width: 180 },
-        { field: 'message', headerName: 'Message', width: 220 },
+        { field: 'message', headerName: 'Message', width: 500 },
         {
             field: "CreatedAt",
             headerName: "Created At",

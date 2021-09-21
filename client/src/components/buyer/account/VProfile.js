@@ -69,7 +69,7 @@ function VProfile() {
     const deleteBuyerDetails = (id) => {
         axios.delete(`/deleteBuyerDetails/${id}`)
             .then((result) => {
-                //sendEmail();
+                sendEmail();
                 deleteBuyer(buyerId);
             });
     };

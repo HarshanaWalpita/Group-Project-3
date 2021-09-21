@@ -35,6 +35,7 @@ function BuyerInfo() {
         const result = postsPara.filter(
             (buyerDetails) =>
                 buyerDetails?.buyerAddress.toLowerCase().includes(searchKey) ||
+                buyerDetails?.buyerName.toLowerCase().includes(searchKey) ||
                 buyerDetails?.favouriteWasteTypes?.map(wasteItem => wasteItem.favouriteWasteTypes).join(' ').toLowerCase().includes(searchKey) ||
                 buyerDetails?.favouriteWasteItems?.map(wasteItem => wasteItem.favouriteWasteItems).join(' ').toLowerCase().includes(searchKey) ||
                 buyerDetails?.favouriteAreas?.map(wasteItem => wasteItem.favouriteAreas).join(' ').toLowerCase().includes(searchKey) ||
@@ -80,6 +81,7 @@ function BuyerInfo() {
                                     <thead>
                                         <tr>
                                             <th>Buyer ID</th>
+                                            <th>Buyer Name</th>
                                             <th>Waste Type</th>
                                             <th>Waste Item</th>
                                             <th>Collecting Area</th>
@@ -93,6 +95,7 @@ function BuyerInfo() {
                                         {buyerDetails.map((note,index)=> (
                                             <tr>
                                                 <td data-label="Offer ID">{index + 1}</td>
+                                                <td data-label="Buyer Name">{note.buyerName}</td>
                                                 <td data-label="Waste Type">
                                                 {note.favouriteWasteTypes.map((wasteTypes)=>(
                                                     <span>

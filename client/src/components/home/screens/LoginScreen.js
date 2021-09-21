@@ -38,6 +38,8 @@ const LoginScreen = ({ history }) => {
       localStorage.setItem("userEmail", data.email);
       localStorage.setItem("registeredAt", data.registeredAt);
       localStorage.setItem("userId", data.id);
+      localStorage.setItem("userOTP", data.otp);
+      localStorage.setItem("userAccountStatus", data.accountStatus);
 
       if(data.usertype==="buyer"){
         history.push("/buyer/home");
@@ -104,6 +106,9 @@ const LoginScreen = ({ history }) => {
 
               <span className="login-screen-h__subtext">
                 Don't have an account? <Link to="/register">Register</Link>
+              </span>
+              <span className="login-screen-h__subtext">
+                Did not verify your account? <Link to="/verifyaccount">Verify</Link>
               </span>
             </form>
           </div>

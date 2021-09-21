@@ -126,7 +126,7 @@ function AComplaints() {
                     <form className="buyer-form-b" onSubmit={handleSubmit} noValidate>
                         <div className="user-details-b">
                             <div className="input-box-b">
-                                <span className="details-b">Complaint Details</span>
+                                <span className="details-b">Complaint Details (පැමිණිල්ල)</span>
                                 <input type="text" name="complaintDetails" id="complaintDetails" placeholder="Enter details" value={formValues.complaintDetails}
                                        onChange={handleChange}
                                        className={formErrors.complaintDetails && "input-error"}></input>

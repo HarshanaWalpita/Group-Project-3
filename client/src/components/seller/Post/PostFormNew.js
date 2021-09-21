@@ -214,7 +214,7 @@ export default function PublicPost({ currentId, setCurrentId }) {
             </div>
             <form className="seller-add-new-post-form" autoComplete="off" noValidate onSubmit={handleSubmit}>
                     <div className="seller-add-post-row">
-                    <label className="seller-add-post-label">District</label>
+                    <label className="seller-add-post-label">District(දිස්ත්‍රිකය)</label>
                     <select className="seller-add-post-select" name="option" value={district}
                             onChange={(e) => {
                                 console.log(e);
@@ -223,31 +223,31 @@ export default function PublicPost({ currentId, setCurrentId }) {
                         
                             }}>
                         <option value="" selected>Choose District</option>    
-                        <option value="Colombo">Colombo</option>
-                        <option value="Gampaha">Gampaha</option>
-                        <option value="Kaluthara">Kaluthara</option>
-                        <option value="Kandy">Kandy</option>
-                        <option value="Mathale">Mathale</option>
-                        <option value="Nuwara-eliya">Nuwara-Eliya</option>
-                        <option value="Galle">Galle</option>
-                        <option value="Matara">Matara</option>
-                        <option value="Hambanthota">Hambanthota</option>
-                        <option value="Jaffna">Jaffna</option>
-                        <option value="Mannar">Mannar</option>
-                        <option value="Vauniya">Vauniya</option>
-                        <option value="Mulathivu">Mulathivu</option>
-                        <option value="Kilinochchi">Kilinochchi</option>
-                        <option value="Batticaloa">Batticaloa</option>
-                        <option value="Ampara">Apmara</option>
-                        <option value="Trincomalee">Trincomalee</option>
-                        <option value="Kurunegala">Kurunegala</option>
-                        <option value="Puttalam">Puttalam</option>
-                        <option value="Anuradhapura">Anuradhapura</option>
-                        <option value="Polonnaruwa">Polonnaruwa</option>
-                        <option value="Badulla">Badulla</option>
-                        <option value="Monaragala">Monaragala</option>
-                        <option value="Rathnapura">Rathnapura</option>
-                        <option value="Kegalle">Kegalle</option>
+                        <option value="ampara">Ampara (අම්පාර)</option>
+                                            <option value="anuradhapura">Anuradhapura (අනුරාධපුර)</option>
+                                            <option value="badulla">Badulla (බදුල්ල)</option>
+                                            <option value="batticaloa">Batticaloa (මඩකලපුව)</option>
+                                            <option value="colombo">Colombo (කොළඹ)</option>
+                                            <option value="galle">Galle (ගාල්ල)</option>
+                                            <option value="gampaha">Gampaha (ගම්පහ)</option>
+                                            <option value="hambantota">Hambantota (හම්බන්තොට)</option>
+                                            <option value="jaffna">Jaffna (යාපනය)</option>
+                                            <option value="kalutara">Kalutara (කළුතර)</option>
+                                            <option value="kandy">Kandy (මහනුවර)</option>
+                                            <option value="kegalle">Kegalle (කෑගල්ල)</option>
+                                            <option value="kilinochchi">Kilinochchi (කිලිනොච්චි)</option>
+                                            <option value="kurunegala">Kurunegala (කුරුණෑගල)</option>
+                                            <option value="mannar">Mannar (මන්නාරම)</option>
+                                            <option value="matale">Matale (මාතලේ)</option>
+                                            <option value="matara">Matara (මාතර)</option>
+                                            <option value="monaragala">Monaragala (මොනරාගල)</option>
+                                            <option value="mullaitivu">Mullaitivu (මුලතිව්)</option>
+                                            <option value="nuwaraeliya">Nuwara Eliya (නුවරඑලිය)</option>
+                                            <option value="polonnaruwa">Polonnaruwa (පොළොන්නරුව)</option>
+                                            <option value="puttalam">Puttalam (පුත්තලම)</option>
+                                            <option value="ratnapura">Ratnapura (රත්නපුර)</option>
+                                            <option value="trincomalee">Trincomalee (ත්රිකුණාමලය)</option>
+                                            <option value="vavuniya">Vavuniya (වවුනියාව)</option>
 
                         </select>
                         {formErrors.district && (
@@ -258,7 +258,7 @@ export default function PublicPost({ currentId, setCurrentId }) {
                    
                 
                     <div className="seller-add-post-row"> 
-                    <label className="seller-add-post-label" htmlfor="address">Address</label>
+                    <label className="seller-add-post-label" htmlfor="address">Address(ලිපිනය)</label>
                         <input className="address"
                             id="input"
                             name="address"
@@ -277,7 +277,7 @@ export default function PublicPost({ currentId, setCurrentId }) {
                 </div>
                     
                 <div className="seller-add-post-row"> 
-                    <label className="seller-add-post-label" htmlfor="contact">Contact Nuber</label>
+                    <label className="seller-add-post-label" htmlfor="contact">Contact Nuber(දුරකතන අංකය)</label>
                         <input className="contact"
                             id="input"
                             name="contact"
@@ -290,14 +290,14 @@ export default function PublicPost({ currentId, setCurrentId }) {
                                     )}
                 </div>
                 <div className="seller-add-post-row">
-                    <label className="seller-add-post-label" for="location">Location</label>
+                    <label className="seller-add-post-label" for="location">Location(ස්තානය)</label>
                         <a href="#" onClick={(e) => { getlocation(e) }}>Get Location</a>
                         {formErrors.location && (
                                         <span className="error" style={{color:'red'}}>{formErrors.location}</span>
                                     )}
                 </div>
                 <div className="seller-add-post-row">
-                        <label className="seller-add-post-label" for="thumbnail_img">Add Thumbnail Image</label>
+                        <label className="seller-add-post-label" for="thumbnail_img">Add Thumbnail Image(රූපයක් එක් කරන්න)</label>
                         <input className="Selected-file"
                             type="file"
                             accept="image/*"
@@ -332,26 +332,26 @@ export default function PublicPost({ currentId, setCurrentId }) {
                       <h3>{`Waste Item #${idx + 1}`}</h3>
                       <a href="#" className="seller-waste-item-delete-btn" onClick={() => {
                           deleteWasteItem(idx);
-                      }}>Delete Item #{idx + 1}</a>
+                      }}>Delete Item(ඉවත් කරන්න) #{idx + 1}</a>
                       
                   </div>
                   <div className="seller-add-post-row">
-                      <label className="seller-add-post-label">Select Waste Type</label>
+                      <label className="seller-add-post-label">Select Waste Type(වර්ගය)</label>
                       <select className="wasteType" name="wastetype" value={val.wasteType} data-idx={idx} onChange={handleCatChange}>
                         <option value="">Choose Waste Type</option>
-                          <option value="plastic">Plastic</option>
-                    <option value="glass">Glass</option>
-                    <option value="paper">Paper</option>
-                    <option value="polythene">Polythene</option>
-                    <option value="organic">Organic</option>
-                    <option value="electronic">Electronic</option>
-                    <option value="other">Other</option>
+                          <option value="plastic">Plastic(ප්ලාස්ටික්)</option>
+                    <option value="glass">Glass(වීදුරු)</option>
+                    <option value="paper">Paper(කඩදාසි)</option>
+                    <option value="polythene">Polythene(පොලිතීන්)</option>
+                    <option value="organic">Organic(කාබනික)</option>
+                    <option value="electronic">Electronic(ඉලෙක්ට්‍රොනික)</option>
+                    <option value="other">Other(වෙනත්)</option>
 
                       </select>
                       
                   </div>
                   <div className="seller-add-post-row"> 
-                    <label className="seller-add-post-label" htmlFor={itemid}>Item</label>
+                    <label className="seller-add-post-label" htmlFor={itemid}>Item(අය්තමය)</label>
                     <input className="item"
                         id="input"
                         name={itemid}
@@ -363,7 +363,7 @@ export default function PublicPost({ currentId, setCurrentId }) {
                     required></input>
                 </div>
                 <div className="seller-add-post-row"> 
-                    <label className="seller-add-post-label" htmlFor={quantityid}>Quantity</label>
+                    <label className="seller-add-post-label" htmlFor={quantityid}>Quantity(ප්‍රමානය) kg</label>
                     <input className="quantity"
                         id="input"
                           name={quantityid}
@@ -374,7 +374,7 @@ export default function PublicPost({ currentId, setCurrentId }) {
                     required></input>
                 </div>
                 <div className="seller-add-post-row"> 
-                    <label className="seller-add-post-label" for={avbDateid}>Available On</label>
+                    <label className="seller-add-post-label" for={avbDateid}>Available On(ලබා දිය හැකි දිනය)</label>
                     <input className="avbDate"
                         id="input"
                           name={avbDateid}
@@ -386,7 +386,7 @@ export default function PublicPost({ currentId, setCurrentId }) {
                 </div>
                   
                   <div className="seller-add-post-row">
-                      <label className="seller-add-post-label" for={selectedFileid}>Select Image</label>
+                      <label className="seller-add-post-label" for={selectedFileid}>Select Image(රූපයක් තෝරන්න)</label>
                       <input className="selectedFile"
                           id="input"
                           name={selectedFileid}
@@ -418,7 +418,7 @@ export default function PublicPost({ currentId, setCurrentId }) {
           );      
         })
     }
-        <a href="#" className="seller-add-waste-item-btn" onClick={addWasteItem}>Add Item</a>
+        <a href="#" className="seller-add-waste-item-btn" onClick={addWasteItem}>Add Item(නව අය්තමයක්)</a>
         <button className="seller-post-submit-btn" type="submit">Submit</button>
     </form>
     

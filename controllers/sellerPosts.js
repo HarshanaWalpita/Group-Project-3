@@ -218,7 +218,7 @@ exports.sellerAcceptPostOffer = async (req, res) => {
     const { status, postId, verificationCode } = req.body;
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
     const updatedOffer = { status, verificationCode,  _id: id};
-    await BuyerOffersForSeller.updateMany({ "postId": postId, "_id": { $ne: id } }, { $set: { status: "decline" } });
+    await BuyerOffersForSeller.updateMany({ "postId": postId, "_id": { $ne: id } }, { $set: { status: "declined" } });
 
     
     await BuyerOffersForSeller.findByIdAndUpdate(id, updatedOffer, { new: true });
@@ -229,13 +229,13 @@ exports.sellerAcceptPostOffer = async (req, res) => {
 
 exports.sellerAcceptWasteItemOffer = async(req, res) => {
     const { id } = req.params;
-    const { status, wasteItemsListId, verificationCode } = req.body;
+    const { postId, status, wasteItemsListId, verificationCode } = req.body;
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
     const updatedOffer = { status, verificationCode, _id: id};
-    await BuyerOffersForSeller.updateMany({ "wasteItemsListId": wasteItemsListId, "_id": { $ne: id } }, { $set: { status: "decline" } });
-   
+    await BuyerOffersForSeller.updateMany({ "wasteItemsListId": wasteItemsListId, "_id": { $ne: id } }, { $set: { status: "declined" } });
+    await BuyerOffersForSeller.updateMany({ "wasteItemsListId": "completePost", "postId": postId, "_id": { $ne: id } }, { $set: { status: "declined" } });
     await BuyerOffersForSeller.findByIdAndUpdate(id, updatedOffer, { new: true });
-
+    
 }
 
 exports.sellerDeclineOffer = async (req, res) => {
@@ -279,7 +279,7 @@ exports.sellerViewAcceptedOffers = async (req, res) => {
 exports.deletePendingSellerPost = async (req, res) => {
     let id = req.params.id;
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
-
+    await BuyerOffersForSeller.updateMany({ "postId": id }, { $set: { status: "decline" } });
     await SellerPost.findByIdAndRemove(id);
 
     res.json({ message: "Post deleted successfully." });

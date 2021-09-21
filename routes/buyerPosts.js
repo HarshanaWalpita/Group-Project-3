@@ -9,7 +9,8 @@ const {
     getOneSellerOrCompany,
     getBuyerDetails,
     deleteBuyer,
-    deleteBuyerDetails
+    deleteBuyerDetails,
+    verifyUserAccount
 } = require("../controllers/buyerPosts");
 
 router.get('/buyerPosts', getPosts);
@@ -21,5 +22,6 @@ router.get('/getOneSellerOrCompany/:id', getOneSellerOrCompany);
 router.get('/getBuyerDetails', getBuyerDetails);
 router.delete('/deleteBuyer/:id', deleteBuyer);
 router.delete('/deleteBuyerDetails/:id', deleteBuyerDetails);
+router.patch('/verifyUserAccount/:id', verifyUserAccount);
 
 module.exports = router;

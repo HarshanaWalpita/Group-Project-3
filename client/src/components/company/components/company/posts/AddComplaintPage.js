@@ -126,7 +126,7 @@ function AddComplaintPage() {
                         <form className="buyer-form-c" onSubmit={handleSubmit} noValidate>
                             <div className="user-details-c">
                                 <div className="input-box-d">
-                                    <span className="details-c">Complaint Details</span>
+                                    <span className="details-c">Complaint Details (පැමිණිල්ල)</span>
                                     <input type="text" name="complaintDetails" id="complaintDetails-c" placeholder="Enter details" value={formValues.complaintDetails}
                                            onChange={handleChange}
                                            className={formErrors.complaintDetails && "input-error"}></input>

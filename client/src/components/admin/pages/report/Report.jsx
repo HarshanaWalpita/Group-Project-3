@@ -14,7 +14,7 @@ import { useHistory } from 'react-router-dom';
 export default function Report() {
 
     const history = useHistory();
-    if((!localStorage.getItem("authToken")) || !(localStorage.getItem("usertype")==="admin")){
+    if ((!localStorage.getItem("authToken")) || !(localStorage.getItem("usertype") === "admin")) {
         history.push("/");
     }
 
@@ -91,7 +91,7 @@ export default function Report() {
             setcom_count(selected_companies.length)
             setcom_sales(getValue(selected_companies))
 
-            
+
             settotal(getValue(selected_sellers) + getValue(selected_companies))
             console.log(total)
 
@@ -126,22 +126,52 @@ export default function Report() {
             </div>
             <Footer />
             <div id="main" style={{ visibility: "hidden", height: 0 }}>
-                <div className="salesrep" id="rep1" style={{"borderWidth":"1px", 'borderColor':"white", 'borderStyle':'solid'}}>
+                <div className="salesrep" id="rep1">
                     <div className="rephead">
                         <img src={logoz} height={55} width={110} className="ii" />
                         <h1 style={{ fontSize: '25px' }}>Report</h1>
                     </div>
 
                     <div className="srpbody" >
-                        <span className="top">From  {day1} to {day2}</span>
-                        <span className="repitem">Sales Done through the time period = Rs . {total}.00</span>
-                        <span className="repitem">Number of Sales done with the Buyers = {seller_count}</span>
-                        <span className="repitem">Buyer sales amount = Rs. {seller_sales}.00</span>
-                        <span className="repitem">Number of Sales done with the companies  =  {company_count}</span>
-                        <span className="repitem">Company   sales amount  =  Rs. {company_sales}.00</span>
-                        <span className="repitem">Waste item with the most demand = Glass</span>
-                        <span className="repitem">Most prefered waste item by the Buyers = Glass</span>
-                        <span className="repitem">Most prefered waste item by the Companies = Paper Material</span>
+                    <span className="top">From  {day1} to {day2}</span>
+                        <div style={{paddingLeft:"20px"}}>
+                        <table className="tt1" >
+                            <tbody>
+                                <tr style={{height: "21px"}}>
+                                    <td style={{height: "19px", width: "61.5%"}}>&nbsp;Sales Done through the time period</td>
+                                    <td style={{height: "21px", width: "36.5%"}}>&nbsp;Rs . {total}.00</td>
+                                </tr>
+                                <tr style={{height: "21px"}}>
+                                    <td style={{height: "19px", width: "61.5%"}}>&nbsp;Number of Sales done with the Buyers</td>
+                                    <td style={{height: "21px", width: "36.5%"}}>&nbsp;{seller_count}</td>
+                                </tr>
+                                <tr style={{height: "21px"}}>
+                                    <td style={{height: "19px", width: "61.5%"}}>&nbsp;Amount of sales with buyers</td>
+                                    <td style={{height: "21px", width: "36.5%"}}>&nbsp;Rs. {seller_sales}.00</td>
+                                </tr>
+                                <tr style={{height: "21px"}}>
+                                    <td style={{height: "19px", width: "61.5%"}}>&nbsp;Number of Sales done with the companies</td>
+                                    <td style={{height: "21px", width: "36.5%"}}>&nbsp;{company_count}</td>
+                                </tr>
+                                <tr style={{height: "21px"}}>
+                                    <td style={{height: "19px", width: "61.5%"}}>&nbsp;Amount of sales with companies</td>
+                                    <td style={{height: "21px", width: "36.5%"}}>&nbsp;Rs. {company_sales}.00</td>
+                                </tr>
+                                <tr style={{height: "21px"}}>
+                                    <td style={{height: "19px", width: "61.5%"}}>&nbsp;Waste item with the most demand</td>
+                                    <td style={{height: "21px", width: "36.5%"}}>&nbsp;Glass</td>
+                                </tr>
+                                <tr style={{height: "21px"}}>
+                                    <td style={{height: "19px", width: "61.5%"}}>&nbsp;Most prefered waste item by the Buyers</td>
+                                    <td style={{height: "21px", width: "36.5%"}}>&nbsp;Glass</td>
+                                </tr>
+                                <tr style={{height: "21px"}}>
+                                    <td style={{height: "19px", width: "61.5%"}}>&nbsp;Most prefered waste item by the Companies</td>
+                                    <td style={{height: "21px", width: "36.5%"}}>&nbsp;Paper</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
 
                     </div>
                 </div>

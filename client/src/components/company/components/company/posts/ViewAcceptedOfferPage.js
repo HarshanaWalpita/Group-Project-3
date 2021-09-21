@@ -63,6 +63,11 @@ function ViewAcceptedOfferPage() {
                         </div> :
                         <div className="tables-c">
                             <div className="tables__container-c">
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <br></br>
                                 <h1>Accepted Offer Details</h1>
                                 <table className="table-c">
                                     <thead>

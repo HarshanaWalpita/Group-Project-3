@@ -202,7 +202,7 @@ function EditCompanyOfferForms() {
                         <form className="buyer-form-b" onSubmit={handleSubmit} noValidate>
                             <div className="user-details-b">
                                 <div className="input-box-b">
-                                    <span className="details-b">Offer Value (Rs)</span>
+                                    <span className="details-b">Offer Value (Rs) (වටිනාකම)</span>
                                     <input type="text" placeholder="Enter value" name="value" id="value" value={formValues.value}
                                            onChange={handleChange}
                                            className={formErrors.value && "input-error"} ></input>
@@ -211,7 +211,7 @@ function EditCompanyOfferForms() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Expiry Date</span>
+                                    <span className="details-b">Expiry Date (කල්පිරෙන දිනය)</span>
                                     <input type="date" placeholder="Enter date" name="expiryDate" id="expiryDate" value={d2}
                                            onChange={handleChange}
                                            className={formErrors.expiryDate && "input-error"}></input>
@@ -220,7 +220,7 @@ function EditCompanyOfferForms() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Waste Items Collecting Date</span>
+                                    <span className="details-b">Waste Items Delivery Date (බෙදාහැරීමේ දිනය)</span>
                                     <input type="date" name="collectingDate" id="collectingDate" placeholder="Enter date" value={d4}
                                            onChange={handleChange}
                                            className={formErrors.collectingDate && "input-error"}></input>
@@ -229,7 +229,7 @@ function EditCompanyOfferForms() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Waste Items Collecting Approximate Time</span>
+                                    <span className="details-b">Waste Items Delivery Approximate Time (භාරදීමේ ආසන්න වේලාව)</span>
                                     <input type="time" name="collectingTime" id="collectingTime" placeholder="Enter time" value={formValues.collectingTime}
                                            onChange={handleChange}
                                            className={formErrors.collectingTime && "input-error"}></input>
@@ -238,7 +238,7 @@ function EditCompanyOfferForms() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Quantity (Kg) [Available Quantity - {newQuantity} Kg]</span>
+                                    <span className="details-b">Quantity (Kg) [Available Quantity - {newQuantity} Kg] (ප්රමාණය)</span>
                                     <input type="text" placeholder="Enter quantity" name="quantity" id="quantity" value={formValues.quantity}
                                            onChange={handleChange}
                                            className={formErrors.quantity && "input-error"}></input>

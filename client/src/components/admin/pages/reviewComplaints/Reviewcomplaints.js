@@ -55,7 +55,6 @@ export default function Reviewcomplaints() {
 
     const columns = [
         { field: 'userName', headerName: 'User', width: 150 },
-        { field: 'complaintAbout', headerName: 'Complain About', width: 170 },
         {
             field: 'complaintDetails',
             headerName: 'Details',

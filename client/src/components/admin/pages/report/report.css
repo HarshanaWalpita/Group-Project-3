@@ -65,3 +65,42 @@
     cursor: pointer;
 
 }
+
+.salesrep[size="A4"] {
+        background: white;
+        width: 21cm;
+        height: 29.7cm;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.5cm;
+        box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+        border:1px solid black;
+      }
+
+.top{
+    padding-bottom: 30px;
+    font-style: italic;
+    font-size: 17px;
+}
+
+.tt1 {
+    width: 500px;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-width: 0.5px;
+    border-color: #252423;
+    border-style: solid;
+    color: #000000;
+    font-size: 11px;
+  }
+  
+  .tt1 td, .tt1 th {
+    border-width: 1px;
+    border-color: #252423;
+    border-style: solid;
+    padding: 8px;
+  }
+  
+  .tt1 thead {
+    background-color: #181816;
+  }

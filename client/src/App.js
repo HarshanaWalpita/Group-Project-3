@@ -23,6 +23,7 @@ import BuyerDirectPosts from "./components/buyer/posts/DirectPosts";
 import BuyerCompanyDirectPosts from "./components/buyer/company_posts/CompanyDirectPosts";
 import BuyerViewRatings from "./components/buyer/posts/ViewRatings";
 import BuyerViewCompanyOffer from "./components/buyer/company_posts/ViewCompanyOffer";
+import BuyerVerifyBuyer from "./components/buyer/account/verifyBuyer";
 
 import BuyerProfileDetails from "./components/buyer/account/ProfileDetails";
 import BuyerViewProfile from './components/buyer/account/ViewProfile';
@@ -36,6 +37,8 @@ import LoginScreen from "./components/home/screens/LoginScreen";
 import RegisterScreen from "./components/home/screens/RegisterScreen";
 import ForgotPasswordScreen from "./components/home/screens/ForgotPasswordScreen";
 import ResetPasswordScreen from "./components/home/screens/ResetPasswordScreen";
+import VerifyAccountScreen from "./components/home/screens/ForgetVerifyAccount";
+import VerifyAccountFunction from "./components/home/screens/VerifyAccount";
 
 import SellerHome from './components/seller/Home/Home';
 import SellerAddPostDirect from './components/seller/Post/AddPostDirect';
@@ -57,6 +60,7 @@ import SellerEditPost from './components/seller/Post/EditPost';
 import SellerViewPrvPost from './components/seller/viewpost/ViewPrvPost';
 import SellerViewItemOffers from './components/seller/viewpost/ViewItemOffers';
 import SellerAddComplaintPage from './components/seller/Buyers/AddComplaintPage';
+import SellerVerifySeller from "./components/seller/Profile/VerifySeller";
 
 import CompanyHome from './components/company/pages/Home';
 import CompanyProfile from './components/company/pages/Profile';
@@ -80,6 +84,7 @@ import CompanyViewAcceptedOffer from "./components/company/pages/ViewAcceptedOff
 import CompanyAddComplaint from "./components/company/pages/AddComplaint";
 import CompanyViewRating from "./components/company/pages/ViewRating";
 import CompanyCompanyRatings from "./components/company/pages/CompanyRatings";
+import CompanyVerifyCompany from "./components/company/components/company/home/VerifyCompany";
 
 import AdminHome from "./components/admin/components/home/Home";
 import AdminUserlist from "./components/admin/pages/userlist/Userlist";
@@ -96,6 +101,7 @@ import AdminReviewComplaints from './components/admin/pages/reviewComplaints/Rev
 import AdminMessages from './components/admin/pages/messages/Messages';
 import AdminCompanyReport from './components/admin/pages/userreport/Companyreport';
 import AdminNewsfeed from './components/admin/pages/newsfeed/Newsfeed';
+import AdminCompanyposts from './components/admin/pages/newsfeed/Companyposts';
 
 function App() {
     return (
@@ -125,6 +131,7 @@ function App() {
                     <Route path='/buyer/companydirectposts' component={BuyerCompanyDirectPosts} />
                     <Route path='/buyer/viewratings/:sellerId' component={BuyerViewRatings} />
                     <Route path='/buyer/viewcompanyofferdetails/:offerId/:companyId' component={BuyerViewCompanyOffer} />
+                    <Route path='/buyer/verifybuyer' component={BuyerVerifyBuyer} />
 
                     <Route path='/buyer/vprofile' component={BuyerViewProfile} />
                     <Route path='/buyer/rcomment' component={BuyerRateAndComment} />
@@ -139,8 +146,8 @@ function App() {
                     <Route path="/register" component={RegisterScreen} />
                     <Route path="/forgotpassword" component={ForgotPasswordScreen}/>
                     <Route path="/passwordreset/:resetToken" component={ResetPasswordScreen}/>
-
-                   
+                    <Route path="/verifyaccount" component={VerifyAccountScreen}/>
+                    <Route path="/verifyforgetaccount/:userId/:OTP" component={VerifyAccountFunction}/>
 
                     <Route path='/admin' exact component={AdminHome} />
                     <Route path='/admin/users' component={AdminUserlist} />
@@ -170,7 +177,7 @@ function App() {
                     <Route path='/seller/viewprvpost/:postId' component={SellerViewPrvPost} />
                     <Route path='/seller/viewitem/:itemId' component={SellerViewItemOffers} />
                     <Route path='/seller/addcomplaint/:buyerId' component={SellerAddComplaintPage} />
-                    
+                    <Route path='/seller/verifyseller' component={SellerVerifySeller} />
                     
                     
 
@@ -189,6 +196,7 @@ function App() {
                     <Route path='/admin/reviewcomplaints' component={AdminReviewComplaints} />
                     <Route path='/admin/messages' component={AdminMessages} />
                     <Route path='/admin/newsfeed' component={AdminNewsfeed} />
+                    <Route path='/admin/companyposts' component={AdminCompanyposts} />
 
 
 					<Route path='/company' exact component={CompanyHome} />
@@ -213,6 +221,7 @@ function App() {
                     <Route path='/company/addcomplaints/:buyerId' component={CompanyAddComplaint} />
                     <Route path='/company/viewbuyerratings/:buyerId' component={CompanyViewRating} />
                     <Route path='/company/companyratings/:companyId' component={CompanyCompanyRatings} />
+                    <Route path='/company/verifycompany' component={CompanyVerifyCompany} />
                 </Switch>
             </Router>
         </>

@@ -93,7 +93,7 @@ function UserProfile() {
     };
 
     const deleteCompanyDetails = (id) => {
-        axios.delete(`/deleteBuyerDetails/${id}`)
+        axios.delete(`/deleteCompanyDetails/${id}`)
             .then((result) => {
                 //sendEmail();
                 deleteCompany(companyId);

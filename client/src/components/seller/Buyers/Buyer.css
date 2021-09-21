@@ -19,6 +19,7 @@
   float: left;
   width: 25%;
   padding: 0 10px;
+  height: 25%;
 }
 
 /* Remove extra left and right margins, due to padding */
@@ -45,12 +46,16 @@
   padding-bottom: 20px;
   cursor: pointer;
   margin-bottom: 20px;
+  height: 250px;
+ 
 }
 .buyer-card img{
   width: 100%;
   
 }
-
+.buyer-card h1{
+  font-size: 2em;
+}
 .ratings-star{
   color: darkgoldenrod;
 }
@@ -164,3 +169,5 @@ margin-bottom: 10px;
   font-size: 17px;
   cursor: none;
 }
+
+

@@ -80,9 +80,17 @@ export default function Sidebar() {
                         <Link to="/admin/newsfeed" className="link">
                         <li className="sidebarListItem">
                             <ListAlt className="sidebarIcon"/>
-                            Newsfeed
+                            Seller Posts
                         </li>
                         </Link>
+
+                        <Link to="/admin/companyposts" className="link">
+                        <li className="sidebarListItem">
+                            <ListAlt className="sidebarIcon"/>
+                            Company Posts
+                        </li>
+                        </Link>
+
 
                         <Link to="/admin/report" className="link">
                         <li className="sidebarListItem">

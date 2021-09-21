@@ -82,20 +82,20 @@ export default function ProfileDetailsPage ({ currentId, setCurrentId }) {
                             <form className="buyer-form-b" onSubmit={handleSubmit}>
                                 <div className="user-details-b">
                                     <div className="input-box-b">
-                                        <span className="details-b">Description</span>
+                                        <span className="details-b">Description (විස්තරය)</span>
                                     <input type="textarea" onChange={(e) => {
                                         setDescription(e.target.value);
 
                                     }}/>
                                     </div>
                                     <div className="input-box-b">
-                                        <span className="details-b">Address</span>
+                                        <span className="details-b">Address (ලිපිනය)</span>
                                     <input type="text" onChange={(e) => {
                                         setAddress(e.target.value);
                                     }}/>
                                 </div>
                                     <div className="input-box-b">
-                                        <span className="details-b">Contact No {buyerContact && buyerContact?.map((contact) => {
+                                        <span className="details-b">Contact No (දුරකථන අංක) {buyerContact && buyerContact?.map((contact) => {
                                         return (
                                             <span>{contact}<BsFillXCircleFill/></span>
                                         )
@@ -116,7 +116,7 @@ export default function ProfileDetailsPage ({ currentId, setCurrentId }) {
                                     
                                 </div>
                                     <div className="input-box-b">
-                                        <span className="details-b">Favourite Areas:{favouriteAreas && favouriteAreas?.map((area) => {
+                                        <span className="details-b">Favourite Areas (ප්‍රදේශ) {favouriteAreas && favouriteAreas?.map((area) => {
                                         return (
                                             <span>{area}</span>
                                         )
@@ -140,7 +140,7 @@ export default function ProfileDetailsPage ({ currentId, setCurrentId }) {
 
                                 </div>
                                     <div className="input-box-b">
-                                        <span className="details-b">Favourite Waste Types:{favouriteWasteTypes && favouriteWasteTypes?.map((type) => {
+                                        <span className="details-b">Favourite Waste Types (වර්ග) {favouriteWasteTypes && favouriteWasteTypes?.map((type) => {
                                         return (
                                             <span>{type}</span>
                                         )
@@ -160,7 +160,7 @@ export default function ProfileDetailsPage ({ currentId, setCurrentId }) {
                                     }} />
                                 </div>
                                     <div className="input-box-b">
-                                        <span className="details-b">Favorite Waste Items:{favouriteWasteItems && favouriteWasteItems?.map((item) => {
+                                        <span className="details-b">Favorite Waste Items (අයිතම) {favouriteWasteItems && favouriteWasteItems?.map((item) => {
                                         return (
                                             <span>{item}</span>
                                         )
@@ -180,7 +180,7 @@ export default function ProfileDetailsPage ({ currentId, setCurrentId }) {
                                     }} />
                                 </div>
                                     <div className="input-box-b">
-                                        <span className="details-b">Images: </span>
+                                        <span className="details-b">Images (රූප)</span>
                                     <input type="file"
                                         accept="image/**"
                                         onChange={

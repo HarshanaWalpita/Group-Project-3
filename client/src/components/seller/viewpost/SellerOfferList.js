@@ -6,7 +6,7 @@ import '../../buyer/posts/LoadingRing.css';
 import moment from 'moment';
 import e from 'cors';
 import './PendingPosts.css';
-
+import emailjs from 'emailjs-com';
 
 export default function SellerOfferList() {
     if ((!localStorage.getItem("authToken")) || !(localStorage.getItem("usertype") === "seller")) {
@@ -16,7 +16,7 @@ export default function SellerOfferList() {
     const [isLoading, setIsLoading] = useState(false);
     const [hasError, setHasError] = useState(false);
     const [isEmpty, setIsEmpty] = useState(false);
-
+    var [buyer, setbuyer] = useState({});
     const sellerId = (localStorage.getItem("userId"));
     console.log("offers page");
     console.log(sellerId)
@@ -71,7 +71,37 @@ export default function SellerOfferList() {
     }
 
     console.log(buyerOffers);
-    
+    const getBuyer = async (buyerId) => {
+        try {
+            const response = await axios.get(`/getOneSellerOrCompany/${buyerId}`)
+            console.log(response);
+            const user=response.data.oneSellerOrCompany;
+            setbuyer(user);
+            sendEmail();
+        } catch (error) {
+            console.error(`Error: ${error}`)
+           }
+           
+        }
+       ;
+       var buyerEmail=buyer.email;
+       var buyerName = buyer.username
+        const templateParams = {
+            from_name: 'Zero-Waste',
+            to_name: buyerName,
+            message: 'Your offer has been accepted by the seller.',
+            reply_to: 'zerowasteproject3@gmail.com',
+            user_email:buyerEmail,
+            project_email:'zerowasteproject3@gmail.com'
+        };
+        const sendEmail = () => {
+            emailjs.send('service_34ny3hp', 'template_91bru6e', templateParams, 'user_pzyBOo0Td3FLgOvuNU4mq')
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+        };
 
     const sellerDeclineOffer = (offerId, e) => {
         e.preventDefault();
@@ -86,7 +116,7 @@ export default function SellerOfferList() {
             });
     //   window.location.reload();
     }
-    const sellerAcceptCompletePostOffer = (offerId, postId, expDate) => {
+    const sellerAcceptCompletePostOffer = (offerId, postId, expDate , buyerId) => {
         if (expDate <= date) {
             alert("Expired Offer")
         } else {
@@ -101,6 +131,7 @@ export default function SellerOfferList() {
                 .then((result) => {
                     console.log("ACCPTED")
                     alert("Offer Accepted");
+                    getBuyer(buyerId);
                     getAllBuyerOffers();
                     //     clear();
                     //  toastNotification();
@@ -110,7 +141,7 @@ export default function SellerOfferList() {
         }
     }
 
-    const sellerAcceptWasteItemOffer = (itemId, offerId, expDate) => {
+    const sellerAcceptWasteItemOffer = (itemId, offerId, expDate, buyerId) => {
         if (expDate <= date) {
             alert("Expired Offer")
             
@@ -128,6 +159,7 @@ export default function SellerOfferList() {
                 .then((result) => {
                     console.log("offer accepted")
                     alert("Offer Accepted");
+                    getBuyer(buyerId);
                     getAllBuyerOffers();
                 });
             //   window.location.reload();
@@ -177,7 +209,7 @@ export default function SellerOfferList() {
                                                     <div className="delete-button-b">
                                                         <button className="accept-btn" onClick={() => {
 
-                                                            sellerAcceptCompletePostOffer(offer._id, offer.postId._id, offer.expiryDate);
+                                                            sellerAcceptCompletePostOffer(offer._id, offer.postId._id, offer.expiryDate,offer.buyerId);
                                                         }}>Accept</button>
                                                     </div>
                                                     <div className="delete-button-b">
@@ -208,7 +240,7 @@ export default function SellerOfferList() {
                                                     </div>
                                                     <div className="delete-button-b">
                                                         <button className="accept-btn" onClick={() => {
-                                                           sellerAcceptWasteItemOffer(item._id, offer._id, offer.expieryDate) 
+                                                           sellerAcceptWasteItemOffer(item._id, offer._id, offer.expieryDate, offer.buyerId) 
                                                         }}>Accept</button>
                                                     </div>
                                                     <div className="delete-button-b">

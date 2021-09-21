@@ -1,10 +1,13 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./RegisterScreen.css";
 import "./LoginScreen.css";
 import HomeNavbar from "../HomeNavbar";
 import Footer from "../../buyer/home/Footer";
+import PasswordStrengthMeter from "./PasswordStrengthMeter";
+import Popup from './Popup';
+import './Popup.css';
 
 const RegisterScreen = ({ history }) => {
   const [username, setUsername] = useState("");
@@ -12,7 +15,31 @@ const RegisterScreen = ({ history }) => {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
   const [usertype, setUserType] = useState("");
+  const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  }
+
+  const generateOTP = () => {
+
+    const string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let OTP = '';
+
+    // Find the length of string
+    let len = string.length;
+    for (let i = 0; i < 6; i++ ) {
+      OTP += string[Math.floor(Math.random() * len)];
+    }
+    return OTP;
+  };
+
+  useEffect(()=>{
+    setOtp(generateOTP());
+  }, []);
 
   const registerHandler = async (e) => {
     e.preventDefault();
@@ -39,7 +66,8 @@ const RegisterScreen = ({ history }) => {
           username,
           email,
           password,
-          usertype
+          usertype,
+          otp
         },
         config
       );
@@ -50,15 +78,17 @@ const RegisterScreen = ({ history }) => {
       localStorage.setItem("userEmail", data.email);
       localStorage.setItem("registeredAt", data.registeredAt);
       localStorage.setItem("userId", data.id);
+      localStorage.setItem("userOTP", data.otp);
+      localStorage.setItem("userAccountStatus", data.accountStatus);
 
       console.log(data.usertype);
       if(data.usertype==="buyer"){
-        history.push("/buyer/profileDetails");
+        history.push("/buyer/verifybuyer");
       }else if(data.usertype==="seller"){
-        history.push("/seller");
+        history.push("/seller/verifyseller");
       }
       else if(data.usertype==="company"){
-        history.push("/company/getcompanydetails");
+        history.push("/company/verifycompany");
       }
       else if(data.usertype==="admin"){
         history.push("/admin");
@@ -103,7 +133,18 @@ const RegisterScreen = ({ history }) => {
           />
         </div>
         <div className="form-group-h">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password: <i className="far fa-question-circle" onClick={togglePopup}></i></label>
+          {isOpen && <Popup
+              content={<>
+              <p>Passwords must contain:</p>
+                <p>1) a minimum of 1 lower case letter [a-z] and</p>
+                <p>2) a minimum of 1 upper case letter [A-Z] and</p>
+                <p>3) a minimum of 1 numeric character [0-9] and</p>
+                <p>4) a minimum of 1 special character: ~`!@#$%^&*()-_+={}[]|\;:",./?</p>
+                <p>5) Passwords must be at least 6 characters in length, but can be much longer.</p>
+              </>}
+              handleClose={togglePopup}
+          />}
           <input
             type="password"
             required
@@ -113,6 +154,7 @@ const RegisterScreen = ({ history }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <PasswordStrengthMeter password={password} />
         </div>
         <div className="form-group-h">
           <label htmlFor="confirmpassword">Confirm Password:</label>

@@ -54,6 +54,8 @@ function GetCompanyDetailsForm() {
     const validate = (values) => {
         let errors = {};
         const regex = /^[0-9]+$/;
+        
+        const len=values.description.length
 
         if (!values.companyName) {
             errors.companyName = "Cannot be blank";
@@ -74,6 +76,9 @@ function GetCompanyDetailsForm() {
         }
         if (!values.description) {
             errors.description = "Cannot be blank";
+        }
+        else if(len>75) {
+            errors.description = "You cannot add more than 75 characters";
         }
 
         return errors;
@@ -106,7 +111,7 @@ function GetCompanyDetailsForm() {
                         <form className="buyer-form-b" onSubmit={handleSubmit} noValidate>
                             <div className="user-details-b">
                                 <div className="input-box-b">
-                                    <span className="details-b">Company Name</span>
+                                    <span className="details-b">Company Name (නම)</span>
                                     <input type="text" name="companyName" id="companyName" placeholder="Enter name" value={formValues.companyName}
                                            onChange={handleChange}
                                            className={formErrors.companyName && "input-error"}></input>
@@ -115,7 +120,7 @@ function GetCompanyDetailsForm() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Contact Number</span>
+                                    <span className="details-b">Contact Number (ඇමතුම් අංකය)</span>
                                     <input type="text" name="companyContact" id="companyContact" placeholder="Enter contact number" value={formValues.companyContact}
                                            onChange={handleChange}
                                            className={formErrors.companyContact && "input-error"}></input>
@@ -124,7 +129,7 @@ function GetCompanyDetailsForm() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Address</span>
+                                    <span className="details-b">Address (ලිපිනය)</span>
                                     <input type="text" name="address" id="address" placeholder="Enter address" value={formValues.address}
                                            onChange={handleChange}
                                            className={formErrors.address && "input-error"}></input>
@@ -133,7 +138,7 @@ function GetCompanyDetailsForm() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Waste Type</span>
+                                    <span className="details-b">Waste Type (වර්ගය)</span>
                                     <input type="text" name="wasteType" id="wasteType" placeholder="Enter waste type" value={formValues.wasteType}
                                            onChange={handleChange}
                                            className={formErrors.wasteType && "input-error"}></input>
@@ -142,7 +147,7 @@ function GetCompanyDetailsForm() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Waste Item</span>
+                                    <span className="details-b">Waste Item (අයිතමය)</span>
                                     <input type="text" name="wasteItem" id="wasteItem" placeholder="Enter waste item" value={formValues.wasteItem}
                                            onChange={handleChange}
                                            className={formErrors.wasteItem && "input-error"}></input>
@@ -151,7 +156,7 @@ function GetCompanyDetailsForm() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Description</span>
+                                    <span className="details-b">Description (විස්තරය)</span>
                                     <input type="text" name="description" id="description" placeholder="Enter description" value={formValues.description}
                                            onChange={handleChange}
                                            className={formErrors.description && "input-error"}></input>

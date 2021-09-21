@@ -53,12 +53,29 @@ export default function Post() {
         };
         axios.patch(`/sellerAcceptPostOffer/${offerId}`, data)
             .then((result) => {
-                console.log("ACCPTED")
+                console.log("ACCPTED");
+                alert("Offer Accepted");
+                getpost();
            //     clear();
               //  toastNotification();
               //  history.push(`/seller/home`);
         });
     }
+
+    const sellerDeclineOffer = (offerId, e) => {
+        e.preventDefault();
+        const data = {
+            status:"declined"
+        }
+        axios.patch(`/sellerDeclineOffer/${offerId}`, data)
+            .then((result) => {
+                console.log("offer Rejected");
+                alert("Offer Rejected");
+                getpost();
+            });
+    //   window.location.reload();
+    }
+
     const long = postData?.location?.longitude;
     console.log(long);
     const lat = postData.location?.latitude;
@@ -101,7 +118,7 @@ export default function Post() {
                                                 </div>
                                                 <div className="seller-post-card-item-details">
                                                     <h4>{item.wasteType} | { item.item}</h4>
-                                                    <img src={item.selectedFile} alt="img" />
+                                                    <img src={item.selectedFile} alt="img" ></img>
                                                     <p>Quantity : { item.quantity}</p>
                                                     <p>Available On :{moment(item.avbDate).format("LLL")}</p>
 
@@ -143,16 +160,19 @@ export default function Post() {
                                                         return (
                                                             <tr>
                                                                 <td>{offerindex + 1}</td>
-                                                                <td>{offer.buyer}</td>
+                                                                <td>{offer.buyerName}</td>
                                                                 <td>{moment(offer.collectingDate).format("LLL")}</td>
                                                                 <td>{offer.collectingTime}</td>
                                                                 <td>{offer.value}</td>
                                                                 <td>{moment(offer.expiryDate).format("LLL")}</td>
-                                                                <td><a hreff="#" className="offer-list-accept" onClick={() => {
+                                                                <td><a hreff="#" className="item-edit-button" onClick={() => {
                                                                     let offerId = offer._id;
                                                                     console.log(offerId);
                                                                     sellerAcceptOffer(offerId);
-                                                                }}>Accept</a><a className="offer-list-decline" hreff="#">Decline</a> </td>
+                                                                }}>Accept</a><a className="item-remove-button" hreff="#" onClick={(e) => {
+                                                                        let offerId = offer._id;
+                                                                        sellerDeclineOffer(offerId, e)
+                                                                }}>Decline</a> </td>
                                                             </tr>
                                                     
                                                                                                       
@@ -169,7 +189,7 @@ export default function Post() {
                                                   
                                         }
                                     </div>  
-                        </div>
+                                </div>
                             </div>
                             <div>
                                 <SimpleMap loc={location} />

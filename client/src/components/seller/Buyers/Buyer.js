@@ -4,6 +4,7 @@ import axios from 'axios';
 import './Buyer.css';
 import buypic from './BuyerImages/images.jpg';
 import '../../buyer/posts/LoadingRing.css';
+import {  BsSearch } from "react-icons/bs";
 
 export default function Buyer() {
 
@@ -53,13 +54,14 @@ export default function Buyer() {
     };
 
     const handleSearchArea = (e) => {
-        setIsLoading(true)
+       
+        e.preventDefault();
         const searchKey = e.currentTarget.value;
 
         axios.get(`/viewAllBuyers`).then((res) => {
             if (res?.data?.success) {
                 filterData(res?.data?.buyer, searchKey);
-                setIsLoading(false)
+                
             }
         });
     }
@@ -87,10 +89,10 @@ export default function Buyer() {
                                         <label className="serch-buyer-lable">Waste Type</label>
                                         <input type="text" placeholder="Search.." name="search" onChange={handleSearchArea} id="serchinput"></input>
                                         <label className="serch-buyer-lable">Waste Item</label>
-                                        <input type="text" placeholder="Search.." name="search" id="serchinput"></input>
+                                        <input type="text" placeholder="Search.." name="search" id="serchinput" onChange={handleSearchArea}></input>
                                         <label className="serch-buyer-lable">Area</label>
-                                        <input type="text" placeholder="Search.." name="search" id="serchinput"></input>
-                                        <button className="seller-search-buyer-btn" type="submit" value="Search"></button>
+                                        <input type="text" placeholder="Search.." name="search" id="serchinput" onChange={handleSearchArea}></input>
+                                        <button className="seller-search-buyer-btn" type="submit" value="Search">Search <BsSearch/></button>
                                     </form>
                                 </div>
            
@@ -106,19 +108,11 @@ export default function Buyer() {
                                             return (
                                                 <div className="buyer-column">
                                                     <div className="buyer-card">
-                                                        <img src={buypic} alt="logo" />
+                                                        
                                                         <h1>{buyer.buyerName}</h1>
                                                         <p>{buyer.buyerAddress}</p>
 
-                                                        <h4>Ratings</h4>
-
-                                                        <div className="ratings-star">
-                                                            <span className="fa fa-star checked"></span>
-                                                            <span className="fa fa-star checked"></span>
-                                                            <span className="fa fa-star checked"></span>
-                                                            <span className="fa fa-star checked"></span>
-                                                            <span className="fa fa-star checked"></span>
-                                                        </div>
+                                                        
                                                         <div>
 
                                                             <div className="seller-view-offer-button">

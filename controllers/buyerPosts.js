@@ -125,3 +125,16 @@ exports.deleteBuyerDetails = async (req, res) => {
     res.json({ message: "Post deleted successfully." });
 }
 
+exports.verifyUserAccount = async (req, res) => {
+    const { id } = req.params;
+    const { otp,accountStatus } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+
+    const updatedPost = { otp,accountStatus, _id: id };
+
+    await User.findByIdAndUpdate(id, updatedPost, { new: true });
+
+    res.json(updatedPost);
+}
+

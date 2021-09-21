@@ -154,7 +154,7 @@ function AddPost() {
                             <form onSubmit={handleSubmit} noValidate>
                                 <div className="user-details-c">
                                     <div className="input-box-c">
-                                        <span className="details-c">Address Number</span>
+                                        <span className="details-c">Address Number (අංකය)</span>
                                         <input type="text" name="number" id="number" placeholder="Enter number" value={formValues.number}
                                            onChange={handleChange}
                                            className={formErrors.number && "input-error"}></input>
@@ -163,7 +163,7 @@ function AddPost() {
                                         )}
                                     </div>
                                     <div className="input-box-c">
-                                        <span className="details-c">Street</span>
+                                        <span className="details-c">Street (වීදිය)</span>
                                         <input type="text" name="street" id="street" placeholder="Enter street" value={formValues.street}
                                                onChange={handleChange}
                                                className={formErrors.street && "input-error"}></input>
@@ -172,7 +172,7 @@ function AddPost() {
                                         )}
                                     </div>
                                     <div className="input-box-c">
-                                        <span className="details-c">City</span>
+                                        <span className="details-c">City (නගරය)</span>
                                         <input type="text" name="city" id="city" placeholder="Enter city" value={formValues.city}
                                                onChange={handleChange}
                                                className={formErrors.city && "input-error"}></input>
@@ -181,7 +181,7 @@ function AddPost() {
                                         )}
                                     </div>
                                     <div className="input-box-c">
-                                        <span className="details-c">District</span>
+                                        <span className="details-c">District (දිස්ත්රික්කය)</span>
                                         <input type="text" name="district" id="district" placeholder="Enter district" value={formValues.district}
                                                onChange={handleChange}
                                                className={formErrors.district && "input-error"}></input>
@@ -190,7 +190,7 @@ function AddPost() {
                                         )}
                                     </div>
                                     <div className="input-box-c">
-                                        <span className="details-c">Contact No</span>
+                                        <span className="details-c">Contact No (සම්බන්ධතා අංකය)</span>
                                         <input type="text" name="contact" id="contact" placeholder="Enter contact" value={formValues.contact}
                                            onChange={handleChange}
                                            className={formErrors.contact && "input-error"}></input>
@@ -199,7 +199,7 @@ function AddPost() {
                                         )}
                                     </div>
                                     <div className="input-box-c">
-                                        <span className="details-c">Waste Type</span>
+                                        <span className="details-c">Waste Type (වර්ගය)</span>
                                         <input type="text" name="wasteType" id="wasteType" placeholder="Enter waste type" value={formValues.wasteType}
                                                onChange={handleChange}
                                                className={formErrors.wasteType && "input-error"}></input>
@@ -208,7 +208,7 @@ function AddPost() {
                                         )}
                                     </div>
                                     <div className="input-box-c">
-                                        <span className="details-c">Waste Item</span>
+                                        <span className="details-c">Waste Item (අයිතමය)</span>
                                         <input type="text" name="item" id="item" placeholder="Enter item" value={formValues.item}
                                                onChange={handleChange}
                                                className={formErrors.item && "input-error"}></input>
@@ -217,7 +217,7 @@ function AddPost() {
                                         )}
                                     </div>
                                     <div className="input-box-c">
-                                        <span className="date-c">Required Date</span>
+                                        <span className="date-c">Required Date (අවශ්‍ය දිනය)</span>
                                         <input type="date" name="avbDate" id="avbDate" placeholder="Enter date" value={formValues.avbDate}
                                                onChange={handleChange}
                                                className={formErrors.avbDate && "input-error"}></input>
@@ -226,7 +226,7 @@ function AddPost() {
                                         )}
                                     </div>
                                     <div className="input-box-c">
-                                    <span className="details-c">Quantity (Kg)</span>
+                                    <span className="details-c">Quantity (Kg) (ප්රමාණය)</span>
                                     <input type="text" name="quantity" id="quantity" placeholder="Enter quantity" value={formValues.quantity}
                                            onChange={handleChange}
                                            className={formErrors.quantity && "input-error"}></input>

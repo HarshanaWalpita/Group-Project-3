@@ -48,7 +48,7 @@ function CompanyNotifyForms() {
         axios.post(apiUrl, data)
             .then((result) => {
                 clear();
-                //sendEmail();
+                sendEmail();
                 toastNotification();
                 //history.push(`/buyer/viewpostdetails/${id}`);
             });
@@ -191,7 +191,7 @@ function CompanyNotifyForms() {
                         <form className="buyer-form-b" onSubmit={handleSubmit} noValidate>
                             <div className="user-details-b">
                                 <div className="input-box-b">
-                                    <span className="details-b">Offer Value (Rs)</span>
+                                    <span className="details-b">Offer Value (Rs) (වටිනාකම)</span>
                                     <input type="text" name="value" id="value" placeholder="Enter value" value={formValues.value}
                                            onChange={handleChange}
                                            className={formErrors.value && "input-error"}></input>
@@ -200,7 +200,7 @@ function CompanyNotifyForms() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Notification Expiry Date</span>
+                                    <span className="details-b">Notification Expiry Date (කල්පිරෙන දිනය)</span>
                                     <input type="date" name="expiryDate" id="expiryDate" placeholder="Enter date" value={formValues.expiryDate}
                                            onChange={handleChange}
                                            className={formErrors.expiryDate && "input-error"}></input>
@@ -209,7 +209,7 @@ function CompanyNotifyForms() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Waste Type</span>
+                                    <span className="details-b">Waste Type (වර්ගය)</span>
                                     <input type="text" name="wasteType" id="wasteType" placeholder="Enter waste type" value={formValues.wasteType}
                                            onChange={handleChange}
                                            className={formErrors.wasteType && "input-error"}></input>
@@ -218,7 +218,7 @@ function CompanyNotifyForms() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Waste Item</span>
+                                    <span className="details-b">Waste Item (අයිතමය)</span>
                                     <input type="text" name="wasteItem" id="wasteItem" placeholder="Enter waste item" value={formValues.wasteItem}
                                            onChange={handleChange}
                                            className={formErrors.wasteItem && "input-error"}></input>
@@ -227,7 +227,7 @@ function CompanyNotifyForms() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Quantity (Kg)</span>
+                                    <span className="details-b">Quantity (Kg) (ප්රමාණය)</span>
                                     <input type="text" name="quantity" id="quantity" placeholder="Enter quantity" value={formValues.quantity}
                                            onChange={handleChange}
                                            className={formErrors.quantity && "input-error"}></input>
@@ -236,7 +236,7 @@ function CompanyNotifyForms() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Waste Items Delivery Date</span>
+                                    <span className="details-b">Waste Items Delivery Date (බෙදාහැරීමේ දිනය)</span>
                                     <input type="date" name="deliveryDate" id="deliveryDate" placeholder="Enter date" value={formValues.deliveryDate}
                                            onChange={handleChange}
                                            className={formErrors.deliveryDate && "input-error"}></input>

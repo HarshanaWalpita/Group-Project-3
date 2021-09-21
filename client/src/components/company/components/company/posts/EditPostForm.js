@@ -133,7 +133,7 @@ function DirectPostForm() {
                             <form onSubmit={handleSubmit} noValidate>
                                 <div className="user-details-c">
                                     <div className="input-box-c">
-                                        <span className="details-c">Contact No</span>
+                                        <span className="details-c">Contact No (සම්බන්ධතා අංකය)</span>
                                         <input type="text" name="contact" id="contact" placeholder="Enter contact" value={formValues.contact}
                                                onChange={handleChange}
                                                className={formErrors.contact && "input-error"}></input>
@@ -142,7 +142,7 @@ function DirectPostForm() {
                                         )}
                                     </div>
                                     <div className="input-box-c">
-                                        <span className="details-c">Waste Type</span>
+                                        <span className="details-c">Waste Type (වර්ගය)</span>
                                         <input type="text" name="wasteType" id="wasteType" placeholder="Enter waste type" value={formValues.wasteType}
                                                onChange={handleChange}
                                                className={formErrors.wasteType && "input-error"}></input>
@@ -151,7 +151,7 @@ function DirectPostForm() {
                                         )}
                                     </div>
                                     <div className="input-box-c">
-                                        <span className="details-c">Waste Item</span>
+                                        <span className="details-c">Waste Item (අයිතමය)</span>
                                         <input type="text" name="item" id="item" placeholder="Enter item" value={formValues.item}
                                                onChange={handleChange}
                                                className={formErrors.item && "input-error"}></input>
@@ -160,7 +160,7 @@ function DirectPostForm() {
                                         )}
                                     </div>
                                     <div className="input-box-c">
-                                        <span className="date-c">Required Date</span>
+                                        <span className="date-c">Required Date (අවශ්‍ය දිනය)</span>
                                         <input type="date" name="avbDate" id="avbDate" placeholder="Enter date" value={d2}
                                                onChange={handleChange}
                                                className={formErrors.avbDate && "input-error"}></input>
@@ -169,7 +169,7 @@ function DirectPostForm() {
                                         )}
                                     </div>
                                     <div className="input-box-c">
-                                        <span className="details-c">Quantity (Kg)</span>
+                                        <span className="details-c">Quantity (Kg) (ප්රමාණය)</span>
                                         <input type="text" name="quantity" id="quantity" placeholder="Enter quantity" value={formValues.quantity}
                                                onChange={handleChange}
                                                className={formErrors.quantity && "input-error"}></input>

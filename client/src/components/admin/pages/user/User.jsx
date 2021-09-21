@@ -11,18 +11,18 @@ import { useHistory } from 'react-router-dom';
 
 export default function User() {
     const history = useHistory();
-    if((!localStorage.getItem("authToken")) || !(localStorage.getItem("usertype")==="admin")){
+    if ((!localStorage.getItem("authToken")) || !(localStorage.getItem("usertype") === "admin")) {
         history.push("/");
     }
 
-    const [_id,setid] = useState(window.location.pathname.split("/")[3]);
+    const [_id, setid] = useState(window.location.pathname.split("/")[3]);
 
-    const [username,setusername] = useState('')
-    const [email,setemail] = useState('')
-    const [role,setrole] = useState('')
+    const [username, setusername] = useState('')
+    const [email, setemail] = useState('')
+    const [role, setrole] = useState('')
 
-    useEffect(()=>{
-        axios.post('/api/adminuser/getuserdata' , {_id:_id}).then(res=>{
+    useEffect(() => {
+        axios.post('/api/adminuser/getuserdata', { _id: _id }).then(res => {
             console.log(res)
 
             const userdata = res.data[0]
@@ -30,25 +30,30 @@ export default function User() {
             setemail(userdata.email)
             setrole(userdata.usertype)
 
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err)
         })
-    },[])
+    }, [])
 
-    function updateuser(){
+    function updateuser() {
+        if (username != '' && email != '') {
+            const updateduser = {
+                username: username,
+                email: email,
+                _id: _id
+            }
+            console.log(updateduser)
 
-        const updateduser = {
-            username : username , 
-            email : email ,
-            _id : _id
+            axios.post('/api/adminuser/updateuser', updateduser).then(res => {
+                console.log(res)
+                alert("user updated successfully")
+            }).catch(err => {
+                console.log(err)
+                alert("an error occured")
+            })
         }
-
-        axios.post('/api/adminuser/updateuser' , updateduser).then(res=>{
-            console.log(res)
-            alert(res.data)
-        }).catch(err=>{
-            console.log(err)
-        })
+        else
+        alert("Fields are empty")
 
     }
 
@@ -94,17 +99,31 @@ export default function User() {
 
                                     <div className="uitem">
                                         <label>Username</label>
-                                        <input type="text" placeholder="Ruvidu" className='uinput'
-                                        value={username} onChange={(e)=>{setusername(e.target.value)}} />
+                                        <input
+                                            className="uinput"
+                                            type="text"
+                                            required
+                                            id="name"
+                                            placeholder="Enter username"
+                                            value={username}
+                                            onChange={(e) => setusername(e.target.value)}
+                                        />
                                     </div>
 
                                     <div className="uitem">
                                         <label>E-mail</label>
-                                        <input type="text" placeholder="Ruvidu@gmail.com" className='uinput'
-                                        value={email} onCHange={(e)=>{setemail(e.target.value)}} />
+                                        <input
+                                            className="uinput"
+                                            type="email"
+                                            required
+                                            id="email"
+                                            placeholder="Enter email"
+                                            value={email}
+                                            onChange={(e) => setemail(e.target.value)}
+                                        />
                                     </div>
 
-                                   
+
 
 
                                 </div>

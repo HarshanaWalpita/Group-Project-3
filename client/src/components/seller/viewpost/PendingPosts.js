@@ -124,7 +124,7 @@ export default function PendingPosts() {
                                                         <p>District: {note.sellerDistrict}</p>
                                                         <p>Post Type: {note.postType}</p>
                                                         <p>Address: {note.address}</p>
-                                                        <p>Telephone No: {note.contact}</p>
+                                                        <p>Telephone1 No: {note.contact}</p>
                                                         <div className="buyerlink-b">
                                                             <Link style={{ color: '#fff', textDecoration: 'none' }}
                                                                 to={`/seller/viewpost/${note._id}`}>View Post <i

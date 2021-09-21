@@ -58,7 +58,6 @@ export default function Post() {
 
   //  console.log(postData);
     console.log("offers",offers);
-
     var compOffer = offers.filter(o => o.wasteItemsListId === "completePost")
     if (compOffer.length === 1) {
         setBuyer(compOffer.buyerName);
@@ -81,6 +80,14 @@ export default function Post() {
         setValue(totalValue);
         */
     }
+
+    const long = postData?.location?.longitude;
+    console.log(long);
+    const lat = postData.location?.latitude;
+    console.log(lat);
+
+    const location={lat,long};
+    console.log(location)
     
     return (
         <>
@@ -101,7 +108,6 @@ export default function Post() {
                             <div className="seller-post-list">
                                 <div className="seller-post-card">
                                     <h2>Post Type : {postData.postType}</h2>
-                                    <h2>Buyer : {buyer}</h2>
                                     <h2>Value: {total}</h2>
                                     <h2>District : {postData.district}</h2>
                                     <h2>Address : {postData.address}</h2>
@@ -115,10 +121,10 @@ export default function Post() {
                                                 </div>
                                                 <div className="seller-post-card-item-details">
                                                     <h4>{item.wasteType} | {item.item}</h4>
-                                                    <img src={item.selectedFile} alt="img" />
+                                                    <img className="image-container" src={item.selectedFile} alt="img" />
                                                     <p>Quantity : {item.quantity}</p>
                                                     <p>Available On :{moment(item.avbDate).format("LLL")}</p>
-                                                    <a href="#">View Offers For Item</a>
+                                                    
                                                 </div>
                                                 
                                             </div>
@@ -128,6 +134,66 @@ export default function Post() {
                                         
                                     })}
                                 </div>
+                                <div className="seller-post-offers">
+                                    <div style={{marginBottom:"30px"}}><h1>Accepted Offers</h1></div>
+                                    <div>
+                                        {offers && offers.length === 0 ?
+                                            <div>There are no accepted offers</div>
+                                            :
+                                        
+                                            <table className="seller-accepted-offers-table">
+                                                <tr>
+                                                    <th>Item</th>
+                                                    <th>Buyer</th>
+                                                    <th>Collecting Date</th>
+                                                    <th>Collecting Time (Aprox:)</th>
+                                                    <th>Offer(Rs)</th>
+                                                    <th>Offer Exp: Date</th>
+                                                  
+                                                </tr>
+                                           
+                                                {offers && offers.map((offer, offerindex) => {
+                                                    if (offer.wasteItemsListId === "completePost") {
+                                                        return (
+                                                            <tr>
+                                                                <td>{ offer.wasteItemsListId }</td>
+                                                                <td>{offer.buyerName}</td>
+                                                                <td>{moment(offer.collectingDate).format("LLL")}</td>
+                                                                <td>{offer.collectingTime}</td>
+                                                                <td>{offer.value}</td>
+                                                                <td>{moment(offer.expiryDate).format("LLL")}</td>
+                                                               
+                                                            </tr>
+                                                    
+                                                                                                      
+                                                        )
+                                                    }
+                                                    else {
+                                                        var item = postData.wasteItemList.find(o => o._id === offer.wasteItemsListId)
+                                                        return (
+                                                            <tr>
+                                                                <td><img className="item-image" src={item.selectedFile}></img></td>
+                                                                <td>{offer.buyerName}</td>
+                                                                <td>{moment(offer.collectingDate).format("LLL")}</td>
+                                                                <td>{offer.collectingTime}</td>
+                                                                <td>{offer.value}</td>
+                                                                <td>{moment(offer.expiryDate).format("LLL")}</td>
+                                                               
+                                                            </tr>
+                                                        )
+                                                    }
+                                                       
+                                                   
+                                                })}
+                                            </table>
+                                                  
+                                        }
+                                    </div>  
+                                </div>
+                                
+                            </div>
+                            <div>
+                                <SimpleMap loc={location} />
                                 
                             </div>
                            

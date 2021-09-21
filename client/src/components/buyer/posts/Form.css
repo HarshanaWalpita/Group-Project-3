@@ -137,6 +137,25 @@
     color: #164A41;
 }
 
+.input-box-b button{
+    margin-top: 3px;
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    color: #ffffff;
+}
+
+.input-box-b button:hover{
+    opacity: 0.8;
+}
+
 @media(max-width: 584px){
     .container-b{
         max-width: 100%;

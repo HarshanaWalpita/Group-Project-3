@@ -4,12 +4,13 @@ import { useHistory } from 'react-router';
 import axios from 'axios';
 import moment from 'moment';
 import './PendingPosts.css';
-
+import emailjs from 'emailjs-com';
 
 import '../../buyer/posts/LoadingRing.css';
 
 export default function ItemOffers() {
     const { itemId } = useParams();
+    var [buyer, setbuyer] = useState({});
     console.log(itemId);
 
     const [offers, setOffers] = useState([]);
@@ -31,7 +32,7 @@ export default function ItemOffers() {
     console.log(offers);
     useEffect(() => {
         getAllOffers()
-    })
+    },[])
    
     const getAllOffers = async () => {
         try {
@@ -70,12 +71,44 @@ export default function ItemOffers() {
    // console.log(decOffers.length);
    // console.log(acceptedOffer.lenght);
    */
-    const sellerAcceptWasteItemOffer = (offerId) => {
+   const getBuyer = async (buyerId) => {
+    try {
+        const response = await axios.get(`/getOneSellerOrCompany/${buyerId}`)
+        console.log(response);
+        const user=response.data.oneSellerOrCompany;
+        setbuyer(user);
+        sendEmail();
+    } catch (error) {
+        console.error(`Error: ${error}`)
+       }
+       
+    }
+   ;
+   var buyerEmail=buyer.email;
+   var buyerName = buyer.username
+    const templateParams = {
+        from_name: 'Zero-Waste',
+        to_name: buyerName,
+        message: 'Your offer has been accepted by the seller.',
+        reply_to: 'zerowasteproject3@gmail.com',
+        user_email:buyerEmail,
+        project_email:'zerowasteproject3@gmail.com'
+    };
+    const sendEmail = () => {
+        emailjs.send('service_34ny3hp', 'template_91bru6e', templateParams, 'user_pzyBOo0Td3FLgOvuNU4mq')
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+            }, function(error) {
+                console.log('FAILED...', error);
+            });
+    };
+    const sellerAcceptWasteItemOffer = (offerId,postId,buyerId) => {
         console.log("accept", itemId);
         var vfCode = Math.floor(100000 + Math.random() * 900000);
      
             console.log("item",itemId)
             const data = {
+                postId:postId,
                 status: "accepted",
                 wasteItemsListId: itemId,
                 verificationCode: vfCode,
@@ -84,6 +117,7 @@ export default function ItemOffers() {
                 .then((result) => {
                     console.log("offer accepted")
                     alert("Offer Accepted");
+                    getBuyer(buyerId);
                     getAllOffers();
                 });
      //   window.location.reload();
@@ -102,7 +136,7 @@ export default function ItemOffers() {
             });
     //   window.location.reload();
     }
-    
+    console.log(offers);
     
     return (
         <>
@@ -126,7 +160,7 @@ export default function ItemOffers() {
                               
                                </tr>
                                {offers && offers?.map((offer, index) => {
-                                   if (offer.status === "decline") {
+                                   if (offer.status === "accepted") {
                                        return (
                                            <tr>
                                                
@@ -178,8 +212,10 @@ export default function ItemOffers() {
                                                     <td>{moment(offer.expiryDate).format("LLL")}</td>
                                                     <td><a hreff="#" className="item-edit-button" onClick={() => {
                                                         let offerId = offer._id;
+                                                        let postId = offer.postId;
+                                                        let buyerId = offer.buyerId;
                                                         console.log(offerId);
-                                                        sellerAcceptWasteItemOffer(offerId);
+                                                        sellerAcceptWasteItemOffer(offerId,postId,buyerId);
                                                     }}>Accept</a>
                                                         <a className="item-remove-button" hreff="#" onClick={(e) => {
                                                             let offerId = offer._id;
@@ -197,7 +233,7 @@ export default function ItemOffers() {
                     </div>
                     <div className="seller-post-offers">
                         <div><h4>Declined Offers:</h4></div>
-                        {offers && (offers.filter(o => o.status === "decline")).length == 0 ?
+                        {offers && (offers.filter(o => o.status === "declined")).length == 0 ?
                             <div><h5>No Declined offers</h5></div>
                             :
                             <table className="seller-accepted-offers-table">
@@ -211,7 +247,7 @@ export default function ItemOffers() {
                                
                                 </tr>
                                 {offers && offers?.map((offer, index) => {
-                                    if (offer.status === "decline") {
+                                    if (offer.status === "declined") {
                                         return (
                                             <tr>
                                                 

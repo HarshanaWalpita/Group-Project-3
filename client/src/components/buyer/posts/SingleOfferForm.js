@@ -58,7 +58,7 @@ function SingleOfferForm() {
         axios.post(apiUrl, data)
             .then((result) => {
                 clear();
-                //sendEmail();
+                sendEmail();
                 toastNotification();
                 //history.push(`/buyer/viewpostdetails/${id}`);
             });
@@ -229,7 +229,7 @@ function SingleOfferForm() {
                         <form className="buyer-form-b" onSubmit={handleSubmit} noValidate>
                             <div className="user-details-b">
                                 <div className="input-box-b">
-                                    <span className="details-b">Offer Value (Rs)</span>
+                                    <span className="details-b">Offer Value (Rs) (වටිනාකම)</span>
                                     <input type="text" name="value" id="value" placeholder="Enter value" value={formValues.value}
                                            onChange={handleChange}
                                            className={formErrors.value && "input-error"}></input>
@@ -238,7 +238,7 @@ function SingleOfferForm() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Offer Expiry Date</span>
+                                    <span className="details-b">Offer Expiry Date (කල්පිරෙන දිනය)</span>
                                     <input type="date" name="expiryDate" id="expiryDate" placeholder="Enter date" value={formValues.expiryDate}
                                            onChange={handleChange}
                                            className={formErrors.expiryDate && "input-error"}></input>
@@ -247,7 +247,7 @@ function SingleOfferForm() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Waste Items Collecting Date</span>
+                                    <span className="details-b">Waste Items Collecting Date (එකතුකිරීමේ දිනය)</span>
                                     <input type="date" name="collectingDate" id="collectingDate" placeholder="Enter date" value={formValues.collectingDate}
                                            onChange={handleChange}
                                            className={formErrors.collectingDate && "input-error"}></input>
@@ -256,7 +256,7 @@ function SingleOfferForm() {
                                     )}
                                 </div>
                                 <div className="input-box-b">
-                                    <span className="details-b">Waste Items Collecting Approximate Time</span>
+                                    <span className="details-b">Waste Items Collecting Approximate Time (ආසන්න වේලාව)</span>
                                     <input type="time" name="collectingTime" id="collectingTime" placeholder="Enter time" value={formValues.collectingTime}
                                            onChange={handleChange}
                                            className={formErrors.collectingTime && "input-error"}></input>
